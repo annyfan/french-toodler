@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 130 90" width="100%" height="100%">
+    <!-- Cloud Shadow -->
+    <ellipse cx="65" cy="80" rx="50" ry="8" fill="rgba(0,0,0,0.08)" />
+    <!-- Puffy Cloud Body -->
+    <path d="M 32 64 C 18 64 12 48 24 38 C 22 24 38 16 50 24 C 60 12 80 12 90 24 C 104 16 118 28 114 42 C 124 52 118 64 104 64 Z" fill="#FFFFFF" stroke="#90E0EF" stroke-width="4" />
+    <!-- Cute Eyes -->
+    <circle cx="52" cy="46" r="3.5" fill="#1D3557" />
+    <circle cx="76" cy="46" r="3.5" fill="#1D3557" />
+    <!-- Rosy Cheeks -->
+    <ellipse cx="44" cy="50" rx="4" ry="2.5" fill="#FFB4D6" />
+    <ellipse cx="84" cy="50" rx="4" ry="2.5" fill="#FFB4D6" />
+    <!-- Smile -->
+    <path d="M 58 52 Q 64 58 70 52" stroke="#1D3557" stroke-width="2.5" fill="none" stroke-linecap="round" />
+  </svg>

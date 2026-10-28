@@ -1,0 +1,605 @@
+[
+  {
+    "id": "syn_01",
+    "type": "complexity",
+    "level1": "Auto papa",
+    "level2": "Auto à papa",
+    "en": "Daddy's car",
+    "zh": "爸爸的车",
+    "blocks": [
+      "Auto",
+      "papa"
+    ]
+  },
+  {
+    "id": "syn_02",
+    "type": "complexity",
+    "level1": "Toutou bébé",
+    "level2": "Toutou au bébé",
+    "en": "Baby's teddy",
+    "zh": "宝宝的毛绒小熊",
+    "blocks": [
+      "Toutou",
+      "bébé"
+    ]
+  },
+  {
+    "id": "syn_03",
+    "type": "complexity",
+    "level1": "Fille maison",
+    "level2": "Fille dans maison",
+    "en": "Girl in the house",
+    "zh": "女孩在房子里",
+    "blocks": [
+      "Fille",
+      "maison"
+    ]
+  },
+  {
+    "id": "syn_04",
+    "type": "complexity",
+    "level1": "Biscuit maman",
+    "level2": "Biscuit pour maman",
+    "en": "Cookie for mom",
+    "zh": "给妈妈的饼干",
+    "blocks": [
+      "Biscuit",
+      "maman"
+    ]
+  },
+  {
+    "id": "syn_05",
+    "type": "complexity",
+    "level1": "Chien table",
+    "level2": "Chien sur (la) table",
+    "en": "Dog on the table",
+    "zh": "狗在桌子上",
+    "blocks": [
+      "Chien",
+      "table"
+    ]
+  },
+  {
+    "id": "syn_06",
+    "type": "complexity",
+    "level1": "Encore biscuit",
+    "level2": "Encore des biscuits",
+    "en": "More cookies",
+    "zh": "还要饼干",
+    "blocks": [
+      "Encore",
+      "biscuit"
+    ]
+  },
+  {
+    "id": "syn_07",
+    "type": "complexity",
+    "level1": "Donne pomme, maman",
+    "level2": "Donne une pomme, maman",
+    "en": "Give an apple, mom",
+    "zh": "妈妈给我一个苹果",
+    "blocks": [
+      "Donne",
+      "pomme,",
+      "maman"
+    ]
+  },
+  {
+    "id": "syn_08",
+    "type": "complexity",
+    "level1": "Papa parti",
+    "level2": "Papa est parti",
+    "en": "Daddy left",
+    "zh": "爸爸走了",
+    "blocks": [
+      "Papa",
+      "parti"
+    ]
+  },
+  {
+    "id": "syn_09",
+    "type": "complexity",
+    "level1": "Pelle Pascal",
+    "level2": "Pascal a une pelle",
+    "en": "Pascal has a shovel",
+    "zh": "帕斯卡有一把铲子",
+    "blocks": [
+      "Pelle",
+      "Pascal"
+    ]
+  },
+  {
+    "id": "syn_10",
+    "type": "complexity",
+    "level1": "Belle ta robe",
+    "level2": "Ta robe est belle",
+    "en": "Your dress is pretty",
+    "zh": "你的裙子真漂亮",
+    "blocks": [
+      "Belle",
+      "ta",
+      "robe"
+    ]
+  },
+  {
+    "id": "syn_11",
+    "type": "complexity",
+    "level1": "Où maman?",
+    "level2": "Est où maman?",
+    "en": "Where is mom?",
+    "zh": "妈妈在哪里？",
+    "blocks": [
+      "Où",
+      "maman?"
+    ]
+  },
+  {
+    "id": "syn_12",
+    "type": "complexity",
+    "level1": "Mon camion",
+    "level2": "C'est mon camion",
+    "en": "It's my truck",
+    "zh": "这是我的卡车",
+    "blocks": [
+      "Mon",
+      "camion"
+    ]
+  },
+  {
+    "id": "syn_13",
+    "type": "complexity",
+    "level1": "Chat là",
+    "level2": "(Il) y a un chat",
+    "en": "There is a cat",
+    "zh": "那里有一只猫",
+    "blocks": [
+      "Chat",
+      "là"
+    ]
+  },
+  {
+    "id": "syn_14",
+    "type": "complexity",
+    "level1": "Lancer balle",
+    "level2": "Lance (la) balle",
+    "en": "Throw the ball",
+    "zh": "扔球",
+    "blocks": [
+      "Lancer",
+      "balle"
+    ]
+  },
+  {
+    "id": "syn_15",
+    "type": "complexity",
+    "level1": "Pas laver poupée",
+    "level2": "Lave pas poupée",
+    "en": "Don't wash doll",
+    "zh": "别洗娃娃",
+    "blocks": [
+      "Pas",
+      "laver",
+      "poupée"
+    ]
+  },
+  {
+    "id": "syn_16",
+    "type": "complexity",
+    "level1": "Encore jus",
+    "level2": "Veux d'autre jus",
+    "en": "Want more juice",
+    "zh": "还要果汁",
+    "blocks": [
+      "Encore",
+      "jus"
+    ]
+  },
+  {
+    "id": "syn_17",
+    "type": "complexity",
+    "level1": "Regarder télé",
+    "level2": "Veux regarder télé",
+    "en": "Want to watch TV",
+    "zh": "想看电视",
+    "blocks": [
+      "Regarder",
+      "télé"
+    ]
+  },
+  {
+    "id": "syn_18",
+    "type": "complexity",
+    "level1": "Donner un bec",
+    "level2": "Veux donner un bec",
+    "en": "Want to give a kiss",
+    "zh": "想亲一下",
+    "blocks": [
+      "Donner",
+      "un",
+      "bec"
+    ]
+  },
+  {
+    "id": "syn_19",
+    "type": "complexity",
+    "level1": "Toi saute?",
+    "level2": "Peux-tu sauter?",
+    "en": "Can you jump?",
+    "zh": "你能跳吗？",
+    "blocks": [
+      "Toi",
+      "saute?"
+    ]
+  },
+  {
+    "id": "syn_20",
+    "type": "complexity",
+    "level1": "Moi pas faire ça",
+    "level2": "Moi peux pas faire ça",
+    "en": "I can't do that",
+    "zh": "我不能做那个",
+    "blocks": [
+      "Moi",
+      "pas",
+      "faire",
+      "ça"
+    ]
+  },
+  {
+    "id": "syn_21",
+    "type": "complexity",
+    "level1": "Pipi dehors minou",
+    "level2": "Minou fait pipi dehors",
+    "en": "Kitty pees outside",
+    "zh": "小猫在外面尿尿",
+    "blocks": [
+      "Pipi",
+      "dehors",
+      "minou"
+    ]
+  },
+  {
+    "id": "syn_22",
+    "type": "complexity",
+    "level1": "Pas marcher là",
+    "level2": "Faut pas marcher là",
+    "en": "Mustn't walk there",
+    "zh": "不能走那里",
+    "blocks": [
+      "Pas",
+      "marcher",
+      "là"
+    ]
+  },
+  {
+    "id": "syn_23",
+    "type": "complexity",
+    "level1": "Moi livre",
+    "level2": "Le livre à moi",
+    "en": "My book",
+    "zh": "我的书",
+    "blocks": [
+      "Moi",
+      "livre"
+    ]
+  },
+  {
+    "id": "syn_24",
+    "type": "complexity",
+    "level1": "Mange une pomme",
+    "level2": "Je mange une pomme",
+    "en": "I eat an apple",
+    "zh": "我在吃苹果",
+    "blocks": [
+      "Mange",
+      "une",
+      "pomme"
+    ]
+  },
+  {
+    "id": "syn_25",
+    "type": "complexity",
+    "level1": "La tête tombé",
+    "level2": "Il (est) tombé sur la tête",
+    "en": "He fell on his head",
+    "zh": "他摔到头了",
+    "blocks": [
+      "La",
+      "tête",
+      "tombé"
+    ]
+  },
+  {
+    "id": "syn_26",
+    "type": "complexity",
+    "level1": "Papa parti",
+    "level2": "Papa parti travailler",
+    "en": "Daddy went to work",
+    "zh": "爸爸去上班了",
+    "blocks": [
+      "Papa",
+      "parti"
+    ]
+  },
+  {
+    "id": "syn_27",
+    "type": "complexity",
+    "level1": "Regarde-moi",
+    "level2": "Regarde-moi danser",
+    "en": "Watch me dance",
+    "zh": "看我跳舞",
+    "blocks": [
+      "Regarde-moi"
+    ]
+  },
+  {
+    "id": "syn_28",
+    "type": "complexity",
+    "level1": "Donne cuillère",
+    "level2": "Donne (la) cuillère pour manger",
+    "en": "Give spoon to eat",
+    "zh": "给勺子用来吃饭",
+    "blocks": [
+      "Donne",
+      "cuillère"
+    ]
+  },
+  {
+    "id": "syn_29",
+    "type": "complexity",
+    "level1": "Veux biscuits",
+    "level2": "Veux biscuits et/pis lait",
+    "en": "Want cookies and milk",
+    "zh": "想要饼干和牛奶",
+    "blocks": [
+      "Veux",
+      "biscuits"
+    ]
+  },
+  {
+    "id": "syn_30",
+    "type": "complexity",
+    "level1": "On a fait ça",
+    "level2": "Sophie et/pis moi a fait ça",
+    "en": "Sophie and me did that",
+    "zh": "索菲和我做了那个",
+    "blocks": [
+      "On",
+      "a",
+      "fait",
+      "ça"
+    ]
+  },
+  {
+    "id": "syn_31",
+    "type": "complexity",
+    "level1": "Je chante une chanson",
+    "level2": "Je chante une chanson pour toi",
+    "en": "I sing a song for you",
+    "zh": "我为你唱一首歌",
+    "blocks": [
+      "Je",
+      "chante",
+      "une",
+      "chanson"
+    ]
+  },
+  {
+    "id": "syn_32",
+    "type": "complexity",
+    "level1": "Pas lire le livre",
+    "level2": "Veux pas tu lis le livre",
+    "en": "Don't want you to read book",
+    "zh": "不想让你读这本书",
+    "blocks": [
+      "Pas",
+      "lire",
+      "le",
+      "livre"
+    ]
+  },
+  {
+    "id": "syn_33",
+    "type": "complexity",
+    "level1": "C'est maman chante",
+    "level2": "C'est maman qui chante",
+    "en": "It's mom who is singing",
+    "zh": "是妈妈在唱歌",
+    "blocks": [
+      "C'est",
+      "maman",
+      "chante"
+    ]
+  },
+  {
+    "id": "syn_34",
+    "type": "complexity",
+    "level1": "Je veux lui",
+    "level2": "Je veux lui que tu as",
+    "en": "I want the one you have",
+    "zh": "我想要你拿的那个",
+    "blocks": [
+      "Je",
+      "veux",
+      "lui"
+    ]
+  },
+  {
+    "id": "syn_35",
+    "type": "complexity",
+    "level1": "Regarde ça",
+    "level2": "Regarde ce que j'ai",
+    "en": "Look what I have",
+    "zh": "看我有什么",
+    "blocks": [
+      "Regarde",
+      "ça"
+    ]
+  },
+  {
+    "id": "syn_36",
+    "type": "complexity",
+    "level1": "Bébé rit",
+    "level2": "Bébé rit parce que content",
+    "en": "Baby laughs because happy",
+    "zh": "宝宝笑是因为开心",
+    "blocks": [
+      "Bébé",
+      "rit"
+    ]
+  },
+  {
+    "id": "syn_37",
+    "type": "complexity",
+    "level1": "Le chapeau de le monsieur",
+    "level2": "Le chapeau du monsieur",
+    "en": "The gentleman's hat",
+    "zh": "先生的帽子",
+    "blocks": [
+      "Le",
+      "chapeau",
+      "de",
+      "le",
+      "monsieur"
+    ]
+  },
+  {
+    "id": "exp_01",
+    "type": "expression",
+    "level1": "Camion Simon",
+    "level2": "Mon camion",
+    "en": "Simon's truck / My truck",
+    "zh": "西蒙的卡车 vs 我的卡车",
+    "blocks": [
+      "Camion",
+      "Simon"
+    ]
+  },
+  {
+    "id": "exp_02",
+    "type": "expression",
+    "level1": "Simon sali",
+    "level2": "Moi sali",
+    "en": "Simon got dirty / I got dirty",
+    "zh": "西蒙弄脏了 vs 我弄脏了",
+    "blocks": [
+      "Simon",
+      "sali"
+    ]
+  },
+  {
+    "id": "exp_03",
+    "type": "expression",
+    "level1": "Prends Simon",
+    "level2": "Prends-moi",
+    "en": "Pick up Simon / Pick me up",
+    "zh": "抱西蒙 vs 抱我",
+    "blocks": [
+      "Prends",
+      "Simon"
+    ]
+  },
+  {
+    "id": "exp_04",
+    "type": "expression",
+    "level1": "Simon jus",
+    "level2": "Veux jus",
+    "en": "Simon wants juice / Want juice",
+    "zh": "西蒙要果汁 vs 我要果汁",
+    "blocks": [
+      "Simon",
+      "jus"
+    ]
+  },
+  {
+    "id": "exp_05",
+    "type": "expression",
+    "level1": "Maman belle",
+    "level2": "Toi belle",
+    "en": "Mom is pretty / You are pretty",
+    "zh": "妈妈真美 vs 你真美",
+    "blocks": [
+      "Maman",
+      "belle"
+    ]
+  },
+  {
+    "id": "exp_06",
+    "type": "expression",
+    "level1": "Brosse dents maman",
+    "level2": "Brosse les dents",
+    "en": "Brush mom's teeth / Brush teeth",
+    "zh": "给妈妈刷牙 vs 刷牙",
+    "blocks": [
+      "Brosse",
+      "dents",
+      "maman"
+    ]
+  },
+  {
+    "id": "exp_07",
+    "type": "expression",
+    "level1": "Le chat dort",
+    "level2": "Il dort",
+    "en": "The cat sleeps / He is sleeping",
+    "zh": "猫咪睡了 vs 他睡了",
+    "blocks": [
+      "Le",
+      "chat",
+      "dort"
+    ]
+  },
+  {
+    "id": "exp_08",
+    "type": "expression",
+    "level1": "Ouvre la porte",
+    "level2": "Ouvre-la",
+    "en": "Open the door / Open it",
+    "zh": "开门 vs 打开它",
+    "blocks": [
+      "Ouvre",
+      "la",
+      "porte"
+    ]
+  },
+  {
+    "id": "exp_09",
+    "type": "expression",
+    "level1": "La soupe est chaude",
+    "level2": "C'est chaud",
+    "en": "The soup is hot / It's hot",
+    "zh": "汤很热 vs 烫/热",
+    "blocks": [
+      "La",
+      "soupe",
+      "est",
+      "chaude"
+    ]
+  },
+  {
+    "id": "exp_10",
+    "type": "expression",
+    "level1": "Pas laver cheveux",
+    "level2": "Pas faire ça",
+    "en": "Don't wash hair / Don't do that",
+    "zh": "别洗头发 vs 别做那个",
+    "blocks": [
+      "Pas",
+      "laver",
+      "cheveux"
+    ]
+  },
+  {
+    "id": "exp_11",
+    "type": "expression",
+    "level1": "Jus dans tasse",
+    "level2": "Jus dedans",
+    "en": "Juice in cup / Juice inside",
+    "zh": "果汁在杯子里 vs 果汁在里面",
+    "blocks": [
+      "Jus",
+      "dans",
+      "tasse"
+    ]
+  }
+]

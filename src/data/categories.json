@@ -1,0 +1,170 @@
+[
+  {
+    "id": 1,
+    "name_fr": "Effets sonores",
+    "name_en": "Sound Effects & Animal Sounds",
+    "name_zh": "声音与动物叫声",
+    "icon": "🔊",
+    "color": "#EF476F"
+  },
+  {
+    "id": 2,
+    "name_fr": "Animaux",
+    "name_en": "Animals",
+    "name_zh": "动物",
+    "icon": "🐾",
+    "color": "#FFD166"
+  },
+  {
+    "id": 3,
+    "name_fr": "Véhicules",
+    "name_en": "Vehicles",
+    "name_zh": "车辆交通",
+    "icon": "🚗",
+    "color": "#06D6A0"
+  },
+  {
+    "id": 4,
+    "name_fr": "Jouets",
+    "name_en": "Toys",
+    "name_zh": "玩具",
+    "icon": "🧸",
+    "color": "#118AB2"
+  },
+  {
+    "id": 5,
+    "name_fr": "Nourriture & boissons",
+    "name_en": "Food & Drinks",
+    "name_zh": "食物与饮品",
+    "icon": "🍎",
+    "color": "#FB5607"
+  },
+  {
+    "id": 6,
+    "name_fr": "Vêtements",
+    "name_en": "Clothing",
+    "name_zh": "衣物服饰",
+    "icon": "👕",
+    "color": "#8338EC"
+  },
+  {
+    "id": 7,
+    "name_fr": "Parties du corps",
+    "name_en": "Body Parts",
+    "name_zh": "身体部位",
+    "icon": "👃",
+    "color": "#3A86FF"
+  },
+  {
+    "id": 8,
+    "name_fr": "Objets de la maison",
+    "name_en": "Small Household Items",
+    "name_zh": "家居日常用品",
+    "icon": "☕",
+    "color": "#FF006E"
+  },
+  {
+    "id": 9,
+    "name_fr": "Meubles & pièces",
+    "name_en": "Furniture & Rooms",
+    "name_zh": "家具与房间",
+    "icon": "🛋️",
+    "color": "#8AC926"
+  },
+  {
+    "id": 10,
+    "name_fr": "Choses de dehors",
+    "name_en": "Outside Things",
+    "name_zh": "户外与自然",
+    "icon": "🌳",
+    "color": "#1982C4"
+  },
+  {
+    "id": 11,
+    "name_fr": "Endroits où aller",
+    "name_en": "Places to Go",
+    "name_zh": "场所与地点",
+    "icon": "🏫",
+    "color": "#6A4C93"
+  },
+  {
+    "id": 12,
+    "name_fr": "Personnes & famille",
+    "name_en": "People",
+    "name_zh": "人物角色",
+    "icon": "👶",
+    "color": "#F15BB5"
+  },
+  {
+    "id": 13,
+    "name_fr": "Jeux & routines",
+    "name_en": "Games & Routines",
+    "name_zh": "游戏与日常作息",
+    "icon": "🎮",
+    "color": "#00BBF9"
+  },
+  {
+    "id": 14,
+    "name_fr": "Actions & verbes",
+    "name_en": "Verbs / Actions",
+    "name_zh": "常用动词与动作",
+    "icon": "⚡",
+    "color": "#00F5D4"
+  },
+  {
+    "id": 15,
+    "name_fr": "Mots descriptifs",
+    "name_en": "Descriptive Words",
+    "name_zh": "形容词与描述词",
+    "icon": "✨",
+    "color": "#FEE440"
+  },
+  {
+    "id": 16,
+    "name_fr": "Le temps & moments",
+    "name_en": "Time Words",
+    "name_zh": "时间词汇",
+    "icon": "⏳",
+    "color": "#9B5DE5"
+  },
+  {
+    "id": 17,
+    "name_fr": "Pronoms",
+    "name_en": "Pronouns",
+    "name_zh": "人称代词",
+    "icon": "👤",
+    "color": "#F72585"
+  },
+  {
+    "id": 18,
+    "name_fr": "Questions",
+    "name_en": "Question Words",
+    "name_zh": "疑问代词",
+    "icon": "❓",
+    "color": "#7209B7"
+  },
+  {
+    "id": 19,
+    "name_fr": "Prépositions & lieux",
+    "name_en": "Prepositions & Locations",
+    "name_zh": "介词与空间方位",
+    "icon": "🧭",
+    "color": "#3F37C9"
+  },
+  {
+    "id": 20,
+    "name_fr": "Quantités & chiffres",
+    "name_en": "Quantifiers & Articles",
+    "name_zh": "冠词与数量词",
+    "icon": "🔢",
+    "color": "#4CC9F0"
+  },
+  {
+    "id": 21,
+    "name_fr": "Petits mots de liaison",
+    "name_en": "Conjunctions",
+    "name_zh": "连词",
+    "icon": "🔗",
+    "color": "#560BAD"
+  }
+]

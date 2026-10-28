@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+    <!-- Shadow -->
+    <ellipse cx="50" cy="92" rx="34" ry="5" fill="rgba(0,0,0,0.12)" />
+    <!-- Bright Yellow Banana -->
+    <path d="M 18 28 C 36 14 74 24 88 64 C 76 76 44 68 24 44 C 16 36 16 30 18 28 Z" fill="#FFD166" stroke="#E2AC00" stroke-width="3.5" />
+    <path d="M 88 64 C 82 78 50 82 24 54 C 44 68 76 68 88 64 Z" fill="#E2AC00" />
+    <!-- Tips -->
+    <circle cx="16" cy="28" r="3.5" fill="#6F4E37" />
+    <circle cx="89" cy="65" r="3.5" fill="#6F4E37" />
+    <path d="M 32 32 Q 54 38 72 52" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity="0.6" fill="none" />
+  </svg>

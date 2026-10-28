@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" width="100%" height="100%">
+    <!-- Shadow -->
+    <ellipse cx="80" cy="112" rx="68" ry="8" fill="rgba(0,0,0,0.12)" />
+    <!-- Wooden Legs -->
+    <polygon points="26,92 20,110 28,110 32,92" fill="#8B5A2B" />
+    <polygon points="134,92 128,110 136,110 140,92" fill="#8B5A2B" />
+    <polygon points="46,92 44,106 50,106 52,92" fill="#6B4226" />
+    <polygon points="114,92 110,106 116,106 118,92" fill="#6B4226" />
+    <!-- Main Couch Backrest -->
+    <rect x="18" y="24" width="124" height="64" rx="28" fill="#F4A261" stroke="#E76F51" stroke-width="4" />
+    <path d="M 32 30 Q 80 38 128 30" stroke="#F8B279" stroke-width="3" fill="none" stroke-linecap="round" />
+    <!-- Left Armrest -->
+    <rect x="10" y="44" width="28" height="52" rx="14" fill="#E76F51" stroke="#C44525" stroke-width="3" />
+    <ellipse cx="24" cy="52" rx="10" ry="6" fill="#F4A261" />
+    <!-- Right Armrest -->
+    <rect x="122" y="44" width="28" height="52" rx="14" fill="#E76F51" stroke="#C44525" stroke-width="3" />
+    <ellipse cx="136" cy="52" rx="10" ry="6" fill="#F4A261" />
+    <!-- Seat Cushions -->
+    <rect x="28" y="58" width="50" height="38" rx="12" fill="#E9C46A" stroke="#E76F51" stroke-width="3" />
+    <rect x="82" y="58" width="50" height="38" rx="12" fill="#E9C46A" stroke="#E76F51" stroke-width="3" />
+    <!-- Cute Throw Pillows -->
+    <!-- Pillow 1 (Teal Polka-dot) -->
+    <rect x="32" y="50" width="26" height="24" rx="7" transform="rotate(-10 45 62)" fill="#2A9D8F" stroke="#264653" stroke-width="2" />
+    <circle cx="40" cy="58" r="2" fill="#E9C46A" />
+    <circle cx="48" cy="64" r="2" fill="#E9C46A" />
+    <!-- Pillow 2 (Heart Pillow) -->
+    <path d="M 112 50 C 112 44 122 42 122 48 C 122 54 112 62 112 62 C 112 62 102 54 102 48 C 102 42 112 44 112 50 Z" fill="#E63946" stroke="#9B2226" stroke-width="2" />
+  </svg>

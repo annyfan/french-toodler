@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 110" width="100%" height="100%">
+    <!-- Shadow -->
+    <ellipse cx="55" cy="102" rx="34" ry="5" fill="rgba(0,0,0,0.12)" />
+    <!-- Huge Fluffy Tail -->
+    <path d="M 40 80 C 10 70 8 20 40 18 C 56 16 54 36 44 48 C 38 56 46 72 54 78 Z" fill="#9C6644" stroke="#7F5539" stroke-width="3" />
+    <!-- Body -->
+    <ellipse cx="62" cy="74" rx="22" ry="24" fill="#B08968" stroke="#7F5539" stroke-width="3" />
+    <ellipse cx="66" cy="76" rx="14" ry="16" fill="#EDE0D4" />
+    <!-- Head -->
+    <circle cx="66" cy="46" r="18" fill="#B08968" stroke="#7F5539" stroke-width="3" />
+    <polygon points="68,30 64,18 76,26" fill="#B08968" stroke="#7F5539" stroke-width="2" />
+    <!-- Big Eye -->
+    <circle cx="72" cy="44" r="4" fill="#2C3E50" />
+    <circle cx="73" cy="43" r="1.5" fill="#FFFFFF" />
+    <!-- Nose & Mouth -->
+    <circle cx="82" cy="48" r="2.5" fill="#2C3E50" />
+    <!-- Holding Acorn -->
+    <ellipse cx="76" cy="68" rx="7" ry="9" fill="#7F5539" stroke="#583101" stroke-width="1.5" />
+    <path d="M 69 64 Q 76 60 83 64 Z" fill="#583101" />
+  </svg>

@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" width="100%" height="100%">
+    <!-- Shadow -->
+    <ellipse cx="50" cy="114" rx="28" ry="4" fill="rgba(0,0,0,0.12)" />
+    <!-- Yarn Hair Pigtails -->
+    <circle cx="28" cy="38" r="10" fill="#E07A5F" />
+    <circle cx="72" cy="38" r="10" fill="#E07A5F" />
+    <circle cx="24" cy="46" r="6" fill="#FFB4D6" />
+    <circle cx="76" cy="46" r="6" fill="#FFB4D6" />
+    <!-- Legs -->
+    <line x1="42" y1="96" x2="42" y2="112" stroke="#FFDBB5" stroke-width="6" stroke-linecap="round" />
+    <line x1="58" y1="96" x2="58" y2="112" stroke="#FFDBB5" stroke-width="6" stroke-linecap="round" />
+    <ellipse cx="40" cy="112" rx="5" ry="3" fill="#E63946" />
+    <ellipse cx="60" cy="112" rx="5" ry="3" fill="#E63946" />
+    <!-- Cute Polka Dot Dress -->
+    <polygon points="50,56 26,96 74,96" fill="#FF70A6" stroke="#D81159" stroke-width="3" stroke-linejoin="round" />
+    <circle cx="44" cy="74" r="2.5" fill="#FFFFFF" />
+    <circle cx="56" cy="74" r="2.5" fill="#FFFFFF" />
+    <circle cx="50" cy="86" r="2.5" fill="#FFFFFF" />
+    <!-- Head -->
+    <circle cx="50" cy="38" r="22" fill="#FFDBB5" stroke="#E07A5F" stroke-width="2.5" />
+    <path d="M 30 32 C 40 20 60 20 70 32" fill="#E07A5F" />
+    <!-- Button Eyes & Smile -->
+    <circle cx="42" cy="38" r="3" fill="#264653" />
+    <circle cx="58" cy="38" r="3" fill="#264653" />
+    <ellipse cx="38" cy="42" rx="3" ry="2" fill="#FF85A1" />
+    <ellipse cx="62" cy="42" rx="3" ry="2" fill="#FF85A1" />
+    <path d="M 46 44 Q 50 48 54 44" stroke="#E63946" stroke-width="2" fill="none" stroke-linecap="round" />
+  </svg>

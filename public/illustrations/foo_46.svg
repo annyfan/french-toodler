@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
+    <!-- Shadow -->
+    <ellipse cx="50" cy="92" rx="32" ry="5" fill="rgba(0,0,0,0.12)" />
+    <!-- Apple Body -->
+    <path d="M 50 30 C 34 14 14 24 16 54 C 18 76 42 88 50 90 C 58 88 82 76 84 54 C 86 24 66 14 50 30 Z" fill="#E63946" stroke="#9B2226" stroke-width="3" />
+    <!-- Apple Stem -->
+    <path d="M 50 28 Q 52 14 62 10" stroke="#6F4E37" stroke-width="5" fill="none" stroke-linecap="round" />
+    <!-- Leaf -->
+    <path d="M 54 20 Q 72 16 68 28 Q 54 28 54 20 Z" fill="#2A9D8F" stroke="#1D6F65" stroke-width="2" />
+    <!-- Specular Highlight -->
+    <ellipse cx="32" cy="44" rx="6" ry="14" fill="#FFA5AB" transform="rotate(-25 32 44)" />
+  </svg>

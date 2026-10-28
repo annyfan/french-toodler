@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 120" width="100%" height="100%">
+    <!-- Shadow -->
+    <ellipse cx="70" cy="114" rx="48" ry="6" fill="rgba(0,0,0,0.15)" />
+    <!-- Antennas -->
+    <line x1="70" y1="30" x2="44" y2="8" stroke="#6C757D" stroke-width="4" stroke-linecap="round" />
+    <line x1="70" y1="30" x2="96" y2="8" stroke="#6C757D" stroke-width="4" stroke-linecap="round" />
+    <circle cx="44" cy="8" r="5" fill="#E63946" />
+    <circle cx="96" cy="8" r="5" fill="#E63946" />
+    <!-- TV Legs -->
+    <polygon points="34,92 24,112 32,112 40,92" fill="#6B4226" />
+    <polygon points="106,92 100,112 108,112 116,92" fill="#6B4226" />
+    <!-- Outer TV Body (Retro Mint) -->
+    <rect x="20" y="24" width="100" height="74" rx="20" fill="#2A9D8F" stroke="#1D6F65" stroke-width="4" />
+    <!-- Screen Bezel -->
+    <rect x="28" y="32" width="66" height="58" rx="14" fill="#1D3557" />
+    <!-- Screen Face (Cute Smiley Display) -->
+    <rect x="31" y="35" width="60" height="52" rx="10" fill="#A8DADC" />
+    <!-- Happy eyes & mouth -->
+    <circle cx="50" cy="56" r="4" fill="#1D3557" />
+    <circle cx="72" cy="56" r="4" fill="#1D3557" />
+    <circle cx="51" cy="54" r="1.5" fill="#FFFFFF" />
+    <circle cx="73" cy="54" r="1.5" fill="#FFFFFF" />
+    <path d="M 54 65 Q 61 74 68 65" stroke="#1D3557" stroke-width="3" fill="none" stroke-linecap="round" />
+    <ellipse cx="44" cy="62" rx="3" ry="2" fill="#F4A261" />
+    <ellipse cx="78" cy="62" rx="3" ry="2" fill="#F4A261" />
+    <!-- Control Dials -->
+    <circle cx="106" cy="44" r="7" fill="#E9C46A" stroke="#C9A24D" stroke-width="2" />
+    <circle cx="106" cy="64" r="7" fill="#E76F51" stroke="#B84931" stroke-width="2" />
+    <!-- Speaker Grille -->
+    <line x1="99" y1="80" x2="113" y2="80" stroke="#1D6F65" stroke-width="2" stroke-linecap="round" />
+    <line x1="99" y1="85" x2="113" y2="85" stroke="#1D6F65" stroke-width="2" stroke-linecap="round" />
+  </svg>

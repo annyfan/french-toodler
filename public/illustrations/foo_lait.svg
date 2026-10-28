@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 120" width="100%" height="100%">
+    <!-- Shadow -->
+    <ellipse cx="50" cy="114" rx="28" ry="4" fill="rgba(0,0,0,0.12)" />
+    <!-- Bottle Cap -->
+    <rect x="36" y="16" width="28" height="12" rx="4" fill="#3A86FF" stroke="#1D3557" stroke-width="2.5" />
+    <!-- Glass Bottle Body -->
+    <rect x="28" y="28" width="44" height="82" rx="10" fill="#F8F9FA" stroke="#CBD5E1" stroke-width="3.5" />
+    <!-- Blue Milk Label with Cow Spot -->
+    <rect x="30" y="52" width="40" height="34" rx="5" fill="#60A5FA" />
+    <circle cx="50" cy="69" r="10" fill="#FFFFFF" />
+    <path d="M 46 66 Q 50 62 54 66 Q 56 72 50 74 Q 44 72 46 66 Z" fill="#1E3A8A" />
+  </svg>

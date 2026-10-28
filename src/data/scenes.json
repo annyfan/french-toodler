@@ -1,0 +1,245 @@
+[
+  {
+    "id": "salon",
+    "name_fr": "Le Salon",
+    "name_en": "Living Room",
+    "name_zh": "客厅",
+    "bgGradient": "from-amber-100 via-orange-50 to-amber-200",
+    "floorColor": "#D4A373",
+    "items": [
+      {
+        "wordId": "fur_09",
+        "x": 48,
+        "y": 62,
+        "size": 155,
+        "label": "divan/sofa"
+      },
+      {
+        "wordId": "ani_08",
+        "x": 52,
+        "y": 62,
+        "size": 75,
+        "label": "chat"
+      },
+      {
+        "wordId": "fur_33",
+        "x": 82,
+        "y": 56,
+        "size": 110,
+        "label": "télévision"
+      },
+      {
+        "wordId": "hou_20",
+        "x": 16,
+        "y": 52,
+        "size": 90,
+        "label": "lampe"
+      },
+      {
+        "wordId": "toy_16",
+        "x": 26,
+        "y": 72,
+        "size": 65,
+        "label": "livre"
+      },
+      {
+        "wordId": "toy_02",
+        "x": 74,
+        "y": 76,
+        "size": 65,
+        "label": "ballon"
+      },
+      {
+        "wordId": "toy_20",
+        "x": 36,
+        "y": 60,
+        "size": 68,
+        "label": "toutou"
+      }
+    ]
+  },
+  {
+    "id": "cuisine",
+    "name_fr": "La Cuisine",
+    "name_en": "Kitchen",
+    "name_zh": "厨房",
+    "bgGradient": "from-emerald-50 via-teal-50 to-cyan-100",
+    "floorColor": "#A8DADC",
+    "items": [
+      {
+        "wordId": "fur_17",
+        "x": 18,
+        "y": 52,
+        "size": 135,
+        "label": "frigidaire/frigo"
+      },
+      {
+        "wordId": "fur_32",
+        "x": 62,
+        "y": 66,
+        "size": 140,
+        "label": "table"
+      },
+      {
+        "wordId": "fur_04",
+        "x": 40,
+        "y": 66,
+        "size": 85,
+        "label": "chaise"
+      },
+      {
+        "wordId": "foo_46",
+        "x": 56,
+        "y": 55,
+        "size": 52,
+        "label": "pomme"
+      },
+      {
+        "wordId": "foo_01",
+        "x": 62,
+        "y": 55,
+        "size": 52,
+        "label": "banane"
+      },
+      {
+        "wordId": "foo_32",
+        "x": 68,
+        "y": 52,
+        "size": 52,
+        "label": "lait"
+      },
+      {
+        "wordId": "foo_05",
+        "x": 74,
+        "y": 58,
+        "size": 48,
+        "label": "biscuit"
+      },
+      {
+        "wordId": "hou_44",
+        "x": 50,
+        "y": 58,
+        "size": 48,
+        "label": "tasse"
+      }
+    ]
+  },
+  {
+    "id": "cour",
+    "name_fr": "La Cour & Le Jardin",
+    "name_en": "Backyard & Park",
+    "name_zh": "院子与公园",
+    "bgGradient": "from-sky-200 via-sky-100 to-emerald-100",
+    "floorColor": "#74C69D",
+    "items": [
+      {
+        "wordId": "out_01",
+        "x": 16,
+        "y": 50,
+        "size": 150,
+        "label": "arbre"
+      },
+      {
+        "wordId": "out_27",
+        "x": 50,
+        "y": 22,
+        "size": 85,
+        "label": "soleil"
+      },
+      {
+        "wordId": "out_18",
+        "x": 28,
+        "y": 24,
+        "size": 80,
+        "label": "nuage"
+      },
+      {
+        "wordId": "ani_11",
+        "x": 34,
+        "y": 74,
+        "size": 90,
+        "label": "chien"
+      },
+      {
+        "wordId": "ani_26",
+        "x": 20,
+        "y": 40,
+        "size": 55,
+        "label": "oiseau"
+      },
+      {
+        "wordId": "ani_15",
+        "x": 12,
+        "y": 66,
+        "size": 55,
+        "label": "écureuil"
+      },
+      {
+        "wordId": "out_03",
+        "x": 64,
+        "y": 56,
+        "size": 120,
+        "label": "balançoire"
+      },
+      {
+        "wordId": "veh_05",
+        "x": 84,
+        "y": 72,
+        "size": 95,
+        "label": "bicyclette"
+      }
+    ]
+  },
+  {
+    "id": "chambre",
+    "name_fr": "La Chambre",
+    "name_en": "Bedroom",
+    "name_zh": "卧室",
+    "bgGradient": "from-indigo-100 via-purple-50 to-pink-100",
+    "floorColor": "#E2CFEA",
+    "items": [
+      {
+        "wordId": "fur_21",
+        "x": 45,
+        "y": 62,
+        "size": 150,
+        "label": "lit"
+      },
+      {
+        "wordId": "toy_20",
+        "x": 36,
+        "y": 55,
+        "size": 68,
+        "label": "toutou"
+      },
+      {
+        "wordId": "fur_19",
+        "x": 84,
+        "y": 56,
+        "size": 120,
+        "label": "garde-robe"
+      },
+      {
+        "wordId": "toy_04",
+        "x": 20,
+        "y": 76,
+        "size": 70,
+        "label": "bloc"
+      },
+      {
+        "wordId": "toy_18",
+        "x": 62,
+        "y": 74,
+        "size": 68,
+        "label": "poupée"
+      },
+      {
+        "wordId": "clo_23",
+        "x": 54,
+        "y": 55,
+        "size": 58,
+        "label": "pyjama"
+      }
+    ]
+  }
+]

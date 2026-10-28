@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 120" width="100%" height="100%">
+    <!-- Shadow -->
+    <ellipse cx="80" cy="112" rx="66" ry="8" fill="rgba(0,0,0,0.15)" />
+    <!-- Table Legs -->
+    <polygon points="26,58 20,110 28,110 34,58" fill="#8B5A2B" />
+    <polygon points="46,58 42,104 48,104 52,58" fill="#6B4226" />
+    <polygon points="114,58 110,104 116,104 120,58" fill="#6B4226" />
+    <polygon points="134,58 126,110 134,110 140,58" fill="#8B5A2B" />
+    <!-- Table Top Wood Board -->
+    <ellipse cx="80" cy="56" rx="68" ry="20" fill="#DDB892" stroke="#8B5A2B" stroke-width="4" />
+    <!-- Checkered / Gingham Tablecloth -->
+    <path d="M 24 54 Q 80 66 136 54 L 140 76 Q 110 82 80 78 Q 50 82 20 76 Z" fill="#FFD166" stroke="#E76F51" stroke-width="3" />
+    <!-- Tablecloth Pattern Dots / Checks -->
+    <circle cx="40" cy="65" r="3" fill="#E76F51" />
+    <circle cx="60" cy="68" r="3" fill="#E76F51" />
+    <circle cx="80" cy="69" r="3" fill="#E76F51" />
+    <circle cx="100" cy="68" r="3" fill="#E76F51" />
+    <circle cx="120" cy="65" r="3" fill="#E76F51" />
+  </svg>
