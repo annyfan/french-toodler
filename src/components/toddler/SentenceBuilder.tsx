@@ -124,7 +124,7 @@ const verbComplements: Record<string, [string, string]> = {
 const getBaseWord = (word: WordItem): string =>
   word.fr.split('/')[0].trim().toLocaleLowerCase('fr-CA');
 
-export const createExamples = (word: WordItem): [SentenceExample, SentenceExample] => {
+const createExamples = (word: WordItem): [SentenceExample, SentenceExample] => {
   const baseWord = getBaseWord(word);
 
   if (word.categoryId === 14) {
