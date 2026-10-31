@@ -50,7 +50,9 @@ export const SimonSays: React.FC = () => {
   const playPrompt = () => {
     if (!currentChallenge) return;
     audioManager.playPop(420);
-    speechManager.speak(`Yannick dit : ${currentChallenge.prompt}`);
+    speechManager.speak('Yannick dit', undefined, () => {
+      speechManager.speak(currentChallenge.prompt, currentChallenge.wordId);
+    });
   };
 
   useEffect(() => {
@@ -78,7 +80,7 @@ export const SimonSays: React.FC = () => {
         origin: { y: 0.6 }
       });
 
-      speechManager.speak(`Bravo ! C'est super !`);
+      speechManager.speak('Bravo !', 'rou_06');
       progressTracker.recordWordInteraction(currentChallenge.wordId);
 
       setTimeout(() => {
@@ -89,7 +91,7 @@ export const SimonSays: React.FC = () => {
     } else {
       // Try again gentle boing
       audioManager.playBoing();
-      speechManager.speak(currentChallenge.prompt);
+      speechManager.speak(currentChallenge.prompt, currentChallenge.wordId);
     }
   };
 
@@ -103,7 +105,7 @@ export const SimonSays: React.FC = () => {
           className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/95 shadow-xl border-4 border-amber-300 flex items-center justify-center text-3xl md:text-4xl"
           aria-label="Rejouer l'instruction"
         >
-          <span>🗣️</span>
+          <span>🔊</span>
         </motion.button>
       </div>
 
@@ -147,19 +149,19 @@ export const SimonSays: React.FC = () => {
             <path d="M 56 145 Q 42 160 34 196 L 26 224" fill="none" stroke="#E0A97E" strokeWidth="18" strokeLinecap="round" />
             <path d="M 144 145 Q 158 160 166 196 L 174 224" fill="none" stroke="#E0A97E" strokeWidth="18" strokeLinecap="round" />
 
-            {/* Striped Shirt */}
-            <path d="M 45 140 C 40 120 160 120 155 140 L 170 232 L 30 232 Z" fill="#F87171" />
-            <line x1="38" y1="165" x2="162" y2="165" stroke="#FFFFFF" strokeWidth="6" />
-            <line x1="34" y1="195" x2="166" y2="195" stroke="#FFFFFF" strokeWidth="6" />
-            <line x1="31" y1="222" x2="169" y2="222" stroke="#FFFFFF" strokeWidth="6" />
+            {/* Soft hoodie */}
+            <path d="M 45 140 C 40 120 160 120 155 140 L 170 232 L 30 232 Z" fill="#22C55E" />
+            <line x1="38" y1="165" x2="162" y2="165" stroke="#BBF7D0" strokeWidth="6" />
+            <line x1="34" y1="195" x2="166" y2="195" stroke="#BBF7D0" strokeWidth="6" />
+            <line x1="31" y1="222" x2="169" y2="222" stroke="#BBF7D0" strokeWidth="6" />
 
             {/* Overalls / Salopette */}
-            <path d="M 55 160 L 145 160 L 152 232 L 48 232 Z" fill="#2563EB" stroke="#1D4ED8" strokeWidth="3" />
-            {/* Overall Straps with Yellow Buttons */}
-            <line x1="68" y1="130" x2="72" y2="175" stroke="#2563EB" strokeWidth="12" strokeLinecap="round" />
-            <line x1="132" y1="130" x2="128" y2="175" stroke="#2563EB" strokeWidth="12" strokeLinecap="round" />
-            <circle cx="72" cy="172" r="5" fill="#FBBF24" stroke="#D97706" strokeWidth="1.5" />
-            <circle cx="128" cy="172" r="5" fill="#FBBF24" stroke="#D97706" strokeWidth="1.5" />
+            <path d="M 55 160 L 145 160 L 152 232 L 48 232 Z" fill="#0EA5E9" stroke="#0284C7" strokeWidth="3" />
+            {/* Overall Straps with Coral Buttons */}
+            <line x1="68" y1="130" x2="72" y2="175" stroke="#0EA5E9" strokeWidth="12" strokeLinecap="round" />
+            <line x1="132" y1="130" x2="128" y2="175" stroke="#0EA5E9" strokeWidth="12" strokeLinecap="round" />
+            <circle cx="72" cy="172" r="5" fill="#FB7185" stroke="#BE123C" strokeWidth="1.5" />
+            <circle cx="128" cy="172" r="5" fill="#FB7185" stroke="#BE123C" strokeWidth="1.5" />
             {/* Overall Pocket */}
             <rect x="85" y="180" width="30" height="26" rx="6" fill="#1D4ED8" />
             <path d="M 94 190 Q 100 196 106 190" stroke="#93C5FD" strokeWidth="2" fill="none" />
@@ -177,8 +179,8 @@ export const SimonSays: React.FC = () => {
             </g>
 
             {/* Legs and feet */}
-            <path d="M 52 230 L 98 230 L 94 286 L 74 286 Z" fill="#2563EB" stroke="#1D4ED8" strokeWidth="3" />
-            <path d="M 102 230 L 148 230 L 126 286 L 106 286 Z" fill="#2563EB" stroke="#1D4ED8" strokeWidth="3" />
+            <path d="M 52 230 L 98 230 L 94 286 L 74 286 Z" fill="#0EA5E9" stroke="#0284C7" strokeWidth="3" />
+            <path d="M 102 230 L 148 230 L 126 286 L 106 286 Z" fill="#0EA5E9" stroke="#0284C7" strokeWidth="3" />
             <g
               onClick={() => handleTargetTap('jambes')}
               className="cursor-pointer group"
@@ -190,8 +192,8 @@ export const SimonSays: React.FC = () => {
               <ellipse cx="75" cy="258" rx="17" ry="28" fill="rgba(254, 240, 138, 0.35)" className="opacity-0 group-hover:opacity-100 transition-opacity" />
               <ellipse cx="125" cy="258" rx="17" ry="28" fill="rgba(254, 240, 138, 0.35)" className="opacity-0 group-hover:opacity-100 transition-opacity" />
             </g>
-            <path d="M 73 278 Q 65 297 47 301 Q 42 309 54 310 L 88 310 Q 97 307 91 298 L 91 280 Z" fill="#FBBF24" stroke="#D97706" strokeWidth="3" />
-            <path d="M 108 280 L 105 298 Q 100 307 110 310 L 146 310 Q 158 309 151 301 Q 133 297 126 278 Z" fill="#FBBF24" stroke="#D97706" strokeWidth="3" />
+            <path d="M 73 278 Q 65 297 47 301 Q 42 309 54 310 L 88 310 Q 97 307 91 298 L 91 280 Z" fill="#F59E0B" stroke="#B45309" strokeWidth="3" />
+            <path d="M 108 280 L 105 298 Q 100 307 110 310 L 146 310 Q 158 309 151 301 Q 133 297 126 278 Z" fill="#F59E0B" stroke="#B45309" strokeWidth="3" />
             <g
               onClick={() => handleTargetTap('pieds')}
               className="cursor-pointer group"
@@ -236,13 +238,13 @@ export const SimonSays: React.FC = () => {
             <circle cx="100" cy="85" r="52" fill="#FFDBB5" stroke="#E0A97E" strokeWidth="2.5" />
 
             {/* Hair */}
-            <path d="M 48 76 C 48 35 152 35 152 76 C 138 48 62 48 48 76 Z" fill="#7C3AED" />
-            <circle cx="62" cy="50" r="15" fill="#7C3AED" />
-            <circle cx="85" cy="42" r="16" fill="#7C3AED" />
-            <circle cx="115" cy="42" r="16" fill="#7C3AED" />
-            <circle cx="138" cy="50" r="15" fill="#7C3AED" />
+            <path d="M 48 76 C 48 35 152 35 152 76 C 138 48 62 48 48 76 Z" fill="#8B5A2B" />
+            <circle cx="62" cy="50" r="15" fill="#8B5A2B" />
+            <circle cx="85" cy="42" r="16" fill="#8B5A2B" />
+            <circle cx="115" cy="42" r="16" fill="#8B5A2B" />
+            <circle cx="138" cy="50" r="15" fill="#8B5A2B" />
             {/* Cute Cowlick Bang */}
-            <path d="M 100 38 Q 106 20 114 26 Q 106 28 102 38 Z" fill="#7C3AED" />
+            <path d="M 100 38 Q 106 20 114 26 Q 106 28 102 38 Z" fill="#8B5A2B" />
 
             {/* Head (Interactive Hitspot) */}
             <g

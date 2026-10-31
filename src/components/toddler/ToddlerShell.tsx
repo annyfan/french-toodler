@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Volume2, VolumeX, Dices } from 'lucide-react';
 import { ToddlerModule } from '../../types';
 import { audioManager } from '../../engine/AudioContextManager';
 import { ExploratoryScene } from './ExploratoryScene';
@@ -60,7 +59,7 @@ export const ToddlerShell: React.FC<ToddlerShellProps> = ({ onOpenParentPortal }
               className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-amber-400 hover:bg-amber-500 text-amber-950 text-xs font-black shadow-sm transition-all"
               title="Changer les objets (Surprise !)"
             >
-              <Dices className="w-3.5 h-3.5" />
+              <span className="text-sm leading-none">🎲</span>
               <span className="hidden sm:inline">Surprise !</span>
             </motion.button>
           )}
@@ -86,7 +85,9 @@ export const ToddlerShell: React.FC<ToddlerShellProps> = ({ onOpenParentPortal }
             title={isMuted ? "Activer le son" : "Couper le son"}
             aria-label={isMuted ? "Activer le son" : "Couper le son"}
           >
-            {isMuted ? <VolumeX className="w-4 h-4 text-rose-500" /> : <Volume2 className="w-4 h-4 text-emerald-600" />}
+            <span className={`text-base leading-none ${isMuted ? 'text-rose-500' : 'text-emerald-600'}`}>
+              {isMuted ? '🔇' : '🔊'}
+            </span>
           </motion.button>
 
           {/* Vertical Separator */}
