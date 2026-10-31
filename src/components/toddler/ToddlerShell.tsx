@@ -35,7 +35,7 @@ export const ToddlerShell: React.FC<ToddlerShellProps> = ({ onOpenParentPortal }
     { id: 'imagier', icon: '📖', color: 'from-indigo-500 to-purple-600', label: 'Imagier (664)' },
     { id: 'peekaboo', icon: '🎁', color: 'from-rose-400 to-pink-500', label: 'Boîte à sons' },
     { id: 'sentences', icon: '🧩', color: 'from-teal-400 to-emerald-500', label: 'Phrases' },
-    { id: 'simon', icon: '🤸', color: 'from-sky-400 to-indigo-500', label: 'Simon a dit' },
+    { id: 'simon', icon: '🤸', color: 'from-sky-400 to-indigo-500', label: 'Yannick a dit' },
   ];
 
   const handleNavClick = (moduleId: ToddlerModule) => {
