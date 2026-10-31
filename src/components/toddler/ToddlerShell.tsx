@@ -4,7 +4,6 @@ import { ToddlerModule } from '../../types';
 import { audioManager } from '../../engine/AudioContextManager';
 import { ExploratoryScene } from './ExploratoryScene';
 import { PictureDictionary } from './PictureDictionary';
-import { SoundBoxPeekaboo } from './SoundBoxPeekaboo';
 import { SentenceBuilder } from './SentenceBuilder';
 import { SimonSays } from './SimonSays';
 import { ParentGate } from '../parent/ParentGate';
@@ -32,7 +31,6 @@ export const ToddlerShell: React.FC<ToddlerShellProps> = ({ onOpenParentPortal }
   const navItems: { id: ToddlerModule; icon: string; color: string; label: string }[] = [
     { id: 'exploratory', icon: '🏠', color: 'from-amber-400 to-orange-400', label: 'Maison' },
     { id: 'imagier', icon: '📖', color: 'from-indigo-500 to-purple-600', label: 'Imagier (664)' },
-    { id: 'peekaboo', icon: '🎁', color: 'from-rose-400 to-pink-500', label: 'Boîte à sons' },
     { id: 'sentences', icon: '🧩', color: 'from-teal-400 to-emerald-500', label: 'Phrases' },
     { id: 'simon', icon: '🤸', color: 'from-sky-400 to-indigo-500', label: 'Yannick a dit' },
   ];
@@ -127,19 +125,6 @@ export const ToddlerShell: React.FC<ToddlerShellProps> = ({ onOpenParentPortal }
               className="w-full h-full"
             >
               <PictureDictionary />
-            </motion.div>
-          )}
-
-          {activeModule === 'peekaboo' && (
-            <motion.div
-              key="peekaboo"
-              initial={{ opacity: 0, scale: 0.98 }}
-              animate={{ opacity: 1, scale: 1 }}
-              exit={{ opacity: 0, scale: 1.02 }}
-              transition={{ duration: 0.2 }}
-              className="w-full h-full"
-            >
-              <SoundBoxPeekaboo />
             </motion.div>
           )}
 

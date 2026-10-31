@@ -63,7 +63,7 @@ export interface SceneConfig {
   items: SceneItemConfig[];
 }
 
-export type ToddlerModule = 'exploratory' | 'imagier' | 'peekaboo' | 'sentences' | 'simon';
+export type ToddlerModule = 'exploratory' | 'imagier' | 'sentences' | 'simon';
 
 export type AudioPriorityMode = 'STUDIO_THEN_SPEECH' | 'ALWAYS_SPEECH' | 'CUSTOM_AUDIO_FIRST';
 
