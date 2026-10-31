@@ -143,38 +143,6 @@ export class SpeechManager {
       this.textToAudioId.set(text, id);
     }
 
-    // 4. Sound Box Peekaboo intro & SFX
-    const sfxMap: Record<string, string> = {
-      'coucou qui est la': 'sfx_peekaboo_intro',
-      'miaou miaou': 'sfx_ani_08',
-      'wouf wouf': 'sfx_ani_11',
-      'meuh meuh': 'sfx_ani_40',
-      'cocorico': 'sfx_ani_13',
-      'coin coin': 'sfx_ani_07',
-      'beee': 'sfx_ani_24',
-      'groin groin': 'sfx_ani_12',
-      'hop hop': 'sfx_ani_21',
-      'vroum vroum': 'sfx_veh_01',
-      'pinpon pinpon': 'sfx_veh_07',
-      'tchou tchou': 'sfx_veh_12',
-      'vrrrrrr': 'sfx_veh_03',
-      'bzzzz': 'sfx_ani_01',
-      'hihan': 'sfx_ani_04',
-      'hiii': 'sfx_ani_09',
-      'croac croac': 'sfx_ani_19',
-      'hou hou': 'sfx_ani_20',
-      'grrr': 'sfx_ani_22',
-      'aouh': 'sfx_ani_23',
-      'cui cui': 'sfx_ani_26',
-      'cot cot cot': 'sfx_ani_34',
-      'ouh ouh ah ah': 'sfx_ani_36',
-      'couic couic': 'sfx_ani_37',
-      'pouet pouet': 'sfx_veh_04',
-      'dring dring': 'sfx_veh_05',
-    };
-    for (const [text, id] of Object.entries(sfxMap)) {
-      this.textToAudioId.set(text, id);
-    }
   }
 
   private applyParentVoiceSettings(): void {

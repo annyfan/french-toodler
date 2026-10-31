@@ -1104,12 +1104,7 @@ export const audioManager \= new WebAudioManager();
 * **Scene Types:** Interactive 2D vector environments (Living Room, Kitchen, Backyard, Park).  
 * **Mechanic:** Toddlers tap on hidden interactive objects (e.g., *frigidaire*, *chat*, *balançoire*). On touch, the asset triggers a physics bounce (`Framer Motion: spring stiffness 400, damping 10`), plays its lexical sound item, and displays an animated visual highlight.
 
-## **Module 2: Boîte à Sons & Devine-qui**
-
-* **Mechanic:** Peek-a-boo curtain screen. An animal/vehicle emits its SFX (e.g., *cocorico*, *vroum*).  
-* **Interaction:** Toddler taps the moving curtain flaps. Upon tap, curtain retracts reveals asset illustration, audio engine plays the word item (*coq* / *camion*), followed by visual reward particle bursts (Pixi.js ParticleContainer).
-
-## **Module 3: Le Bâtisseur de Phrases**
+## **Module 2: Le Bâtisseur de Phrases**
 
 * **Mechanic:** Visual drag-and-drop tile snapper.  
 * **UI Structure:** Bottom panel displays 2–3 visual word chips (e.g., \[Image: Auto\] \+ \[Image: Papa\]).  
@@ -1117,7 +1112,7 @@ export const audioManager \= new WebAudioManager();
   * *Level 1 Mode:* Triggers telegraphic prompt audio: *"Auto papa\!"*  
   * *Level 2 Mode:* Automatically inserts particle prepositions (\[à\]) and triggers grammatical audio: *"C'est l'auto à papa\!"*
 
-## **Module 4: Simon a dit / Action-Réaction**
+## **Module 3: Simon a dit / Action-Réaction**
 
 * **Mechanic:** Focuses on Body Parts and Verbs (*Touche le nez\!*, *Saute\!*).  
 * **Interaction:** Character avatar performs actions or highlights body parts upon toddler selection. Immediate dynamic video-like micro-animations play upon success.
@@ -1226,8 +1221,6 @@ french-toddler-platform/
 │   │   ├── toddler/
 
 │   │   │   ├── ExploratoryScene.tsx
-
-│   │   │   ├── SoundBoxPeekaboo.tsx
 
 │   │   │   ├── SentenceBuilder.tsx
 

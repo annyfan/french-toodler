@@ -8,11 +8,10 @@ Plateforme interactive web d'apprentissage du français québécois conçue spé
 
 ### 1. Interface Tout-Petits (0-Texte & Touch-First)
 * **Zéro Texte :** Aucun mot écrit dans l'interface enfant; navigation 100% visuelle, tactile et intuitive.
-* **4 Modules d'Apprentissage :**
+* **3 Modules d'Apprentissage :**
   1. 🏠 **Scène Exploratoire :** 4 pièces interactives (Salon, Cuisine, Cour/Jardin, Chambre). Tap sur les objets -> rebond physique, sons, et prononciation québécoise instantanée.
-  2. 🎁 **Boîte à Sons & Devine-qui :** Écran de coucou avec rideaux. Son/onomatopée d'animal ou de véhicule d'abord -> tap pour ouvrir -> révélation et confettis.
-  3. 🧩 **Le Bâtisseur de Phrases :** Assemblage visuel de tuiles pour passer du Niveau 1 (Télégraphique : *Auto papa*) au Niveau 2 (Syntaxique : *Auto à papa*).
-  4. 🤸 **Simon a dit / Action-Réaction :** Parties du corps (*Touche le nez !*) et verbes d'action (*Saute !*, *Dors !*) sur un avatar réactif.
+  2. 🧩 **Le Bâtisseur de Phrases :** Assemblage visuel de tuiles pour passer du Niveau 1 (Télégraphique : *Auto papa*) au Niveau 2 (Syntaxique : *Auto à papa*).
+  3. 🤸 **Simon a dit / Action-Réaction :** Parties du corps (*Touche le nez !*) et verbes d'action (*Saute !*, *Dors !*) sur un avatar réactif.
 * **Audio Instantané (< 16ms) :** Synthétiseur procédural Web Audio API (bulles, harpes, ressorts, confettis) couplé à la synthèse vocale en français québécois (`fr-CA`).
 
 ### 2. Portail Parents & Orthophonie (Verrouillé 2.0s)
