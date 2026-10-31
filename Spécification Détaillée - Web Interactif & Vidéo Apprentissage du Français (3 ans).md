@@ -1222,8 +1222,6 @@ french-toddler-platform/
 
 │   │   │   ├── ExploratoryScene.tsx
 
-│   │   │   ├── SoundBoxPeekaboo.tsx
-
 │   │   │   ├── SentenceBuilder.tsx
 
 │   │   │   └── SimonSays.tsx
