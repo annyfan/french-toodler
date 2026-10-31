@@ -98,48 +98,6 @@ async def main():
     for key, text in simon_items.items():
         tasks.append(generate_file(f"{key}.mp3", text))
 
-    # 3. SoundBoxPeekaboo mystery intro and animal/vehicle SFX
-    sfx_items = {
-        "sfx_peekaboo_intro": "Coucou ! Qui est là ?",
-        "sfx_ani_08": "Miaou ! Miaou !",      # chat
-        "sfx_ani_11": "Wouf wouf !",          # chien
-        "sfx_ani_40": "Meuh ! Meuh !",        # vache
-        "sfx_ani_13": "Cocorico !",            # coq
-        "sfx_ani_07": "Coin coin !",           # canard
-        "sfx_ani_24": "Bêêê !",                # mouton
-        "sfx_ani_02": "Bêêê !",                # agneau
-        "sfx_ani_12": "Groin groin !",         # cochon
-        "sfx_ani_21": "Hop ! Hop !",           # lapin
-        "sfx_veh_01": "Vroum ! Vroum !",       # auto
-        "sfx_veh_02": "Vroum ! Vroum !",       # autobus
-        "sfx_veh_06": "Vroum ! Vroum !",       # camion
-        "sfx_veh_07": "Pin-pon ! Pin-pon !",   # camion de pompier
-        "sfx_veh_09": "Vroum ! Vroum !",       # moto
-        "sfx_veh_11": "Vroum ! Vroum !",       # tracteur
-        "sfx_veh_12": "Tchou tchou !",         # train
-        "sfx_veh_03": "Vrrrrrr !",             # avion
-        "sfx_veh_08": "Vrrrrrr !",             # hélicoptère
-        "sfx_veh_04": "Pouët pouët !",         # bateau
-        "sfx_veh_05": "Dring dring !",         # bicyclette
-        "sfx_veh_14": "Dring dring !",         # tricycle
-        "sfx_ani_01": "Bzzzz !",               # abeille
-        "sfx_ani_04": "Hi-han !",              # âne
-        "sfx_ani_09": "Hiii !",                # cheval
-        "sfx_ani_19": "Croac croac !",         # grenouille
-        "sfx_ani_20": "Hou hou !",             # hibou
-        "sfx_ani_22": "Grrr !",                # lion
-        "sfx_ani_23": "Aouh !",                # loup
-        "sfx_ani_26": "Cui cui !",             # oiseau
-        "sfx_ani_28": "Grrr !",                # ours
-        "sfx_ani_34": "Cot cot cot !",         # poule
-        "sfx_ani_36": "Ouh ouh ah ah !",       # singe
-        "sfx_ani_37": "Couic couic !",         # souris
-        "sfx_ani_38": "Grrr !"                 # tigre
-    }
-
-    for key, text in sfx_items.items():
-        tasks.append(generate_file(f"{key}.mp3", text))
-
     print(f"Total audio files to process: {len(tasks)}")
     
     # Process in chunks of 20
