@@ -1,1 +1,37 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path fill="#3B88C3" d="M20.182 0H10v4.568L3.818 33.682 11.545 36l6.41-23.182z"/><path fill="#3B88C3" d="M15.818 0H26v4.568l6.182 29.114L24.454 36l-6.409-23.182z"/><path fill="#269" d="M10 2h16v2H10zm9 10h-2l-4-2h10z"/><path fill="#269" d="M12 0h2v3h-2zm10 0h2v3h-2zm-6 4h2v7h-2z"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 120" width="100%" height="100%">
+    <ellipse cx="70" cy="112" rx="54" ry="6" fill="rgba(0,0,0,0.12)" />
+    <!-- Blue Denim Jeans -->
+    <g transform="translate(34, 10)">
+      <!-- Waistband -->
+      <rect x="6" y="2" width="60" height="12" rx="2" fill="#1D4ED8" stroke="#1E3A8A" stroke-width="2.5" />
+      <!-- Golden Belt Loops -->
+      <rect x="12" y="0" width="4" height="14" rx="1" fill="#1E40AF" stroke="#EAB308" stroke-width="1" />
+      <rect x="34" y="0" width="4" height="14" rx="1" fill="#1E40AF" stroke="#EAB308" stroke-width="1" />
+      <rect x="56" y="0" width="4" height="14" rx="1" fill="#1E40AF" stroke="#EAB308" stroke-width="1" />
+      <!-- Brass Waist Button -->
+      <circle cx="36" cy="8" r="3.5" fill="#FBBF24" stroke="#B45309" stroke-width="1.2" />
+      <!-- Main Jeans Legs Body -->
+      <path d="M 6 14 L 6 82 L 28 82 L 36 42 L 44 82 L 66 82 L 66 14 Z" fill="#2563EB" stroke="#1E3A8A" stroke-width="2.5" />
+      <!-- Thigh Faded Denim Wash Highlights -->
+      <ellipse cx="18" cy="46" rx="6" ry="18" fill="#60A5FA" opacity="0.6" />
+      <ellipse cx="54" cy="46" rx="6" ry="18" fill="#60A5FA" opacity="0.6" />
+      <!-- Curved Front Pockets with yellow stitching -->
+      <path d="M 6 20 C 18 20 24 28 24 38" stroke="#FDE047" stroke-width="1.8" fill="none" />
+      <path d="M 66 20 C 54 20 48 28 48 38" stroke="#FDE047" stroke-width="1.8" fill="none" />
+      <!-- Little Coin Pocket on right side -->
+      <rect x="49" y="20" width="10" height="8" fill="none" stroke="#FDE047" stroke-width="1.2" />
+      <!-- Copper Rivets on Pocket Corners -->
+      <circle cx="6" cy="20" r="1.8" fill="#F97316" stroke="#9A3412" stroke-width="0.8" />
+      <circle cx="24" cy="38" r="1.8" fill="#F97316" stroke="#9A3412" stroke-width="0.8" />
+      <circle cx="66" cy="20" r="1.8" fill="#F97316" stroke="#9A3412" stroke-width="0.8" />
+      <circle cx="48" cy="38" r="1.8" fill="#F97316" stroke="#9A3412" stroke-width="0.8" />
+      <!-- Fly Stitching J-curve -->
+      <path d="M 36 14 L 36 28 C 36 34 32 38 28 38" stroke="#FDE047" stroke-width="1.8" fill="none" />
+      <!-- Outer & Inseam double stitching lines -->
+      <line x1="8" y1="14" x2="8" y2="82" stroke="#FDE047" stroke-width="1.2" stroke-dasharray="3,2" />
+      <line x1="64" y1="14" x2="64" y2="82" stroke="#FDE047" stroke-width="1.2" stroke-dasharray="3,2" />
+      <!-- Folded Denim Cuffs at Ankle (showing lighter underside) -->
+      <rect x="5" y="80" width="24" height="10" rx="2" fill="#93C5FD" stroke="#1E3A8A" stroke-width="2" />
+      <rect x="43" y="80" width="24" height="10" rx="2" fill="#93C5FD" stroke="#1E3A8A" stroke-width="2" />
+    </g>
+  </svg>

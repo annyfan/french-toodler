@@ -1,27 +1,53 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 110 120" width="100%" height="100%">
-    <!-- Shadow -->
-    <ellipse cx="55" cy="114" rx="36" ry="5" fill="rgba(0,0,0,0.12)" />
-    <!-- Round Ears -->
-    <circle cx="32" cy="30" r="14" fill="#B08968" stroke="#7F5539" stroke-width="3" />
-    <circle cx="32" cy="30" r="7" fill="#DDB892" />
-    <circle cx="78" cy="30" r="14" fill="#B08968" stroke="#7F5539" stroke-width="3" />
-    <circle cx="78" cy="30" r="7" fill="#DDB892" />
-    <!-- Body -->
-    <ellipse cx="55" cy="80" rx="30" ry="26" fill="#B08968" stroke="#7F5539" stroke-width="3" />
-    <ellipse cx="55" cy="82" rx="18" ry="16" fill="#DDB892" />
-    <!-- Cute Red Bow Tie -->
-    <polygon points="45,64 55,68 45,72" fill="#E63946" stroke="#9B2226" stroke-width="2" />
-    <polygon points="65,64 55,68 65,72" fill="#E63946" stroke="#9B2226" stroke-width="2" />
-    <circle cx="55" cy="68" r="3" fill="#D62828" />
-    <!-- Head -->
-    <circle cx="55" cy="48" r="28" fill="#B08968" stroke="#7F5539" stroke-width="3" />
-    <!-- Eyes -->
-    <circle cx="44" cy="44" r="4.5" fill="#2C3E50" />
-    <circle cx="66" cy="44" r="4.5" fill="#2C3E50" />
-    <circle cx="45" cy="42" r="1.5" fill="#FFFFFF" />
-    <circle cx="67" cy="42" r="1.5" fill="#FFFFFF" />
-    <!-- Snout & Nose -->
-    <ellipse cx="55" cy="54" rx="12" ry="8" fill="#DDB892" />
-    <ellipse cx="55" cy="52" rx="5" ry="3.5" fill="#2C3E50" />
-    <path d="M 52 56 Q 55 60 58 56" stroke="#2C3E50" stroke-width="2" fill="none" stroke-linecap="round" />
-  </svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 120" width="100%" height="100%">
+  <!-- Soft ground shadow -->
+  <ellipse cx="70" cy="112" rx="42" ry="6" fill="rgba(0,0,0,0.14)" />
+
+  <!-- Plush Legs / Paws -->
+  <!-- Left Leg -->
+  <ellipse cx="44" cy="98" rx="16" ry="12" fill="#B08968" stroke="#7F5539" stroke-width="2.5" />
+  <ellipse cx="44" cy="98" rx="9" ry="7" fill="#E6CCB2" />
+  <!-- Right Leg -->
+  <ellipse cx="96" cy="98" rx="16" ry="12" fill="#B08968" stroke="#7F5539" stroke-width="2.5" />
+  <ellipse cx="96" cy="98" rx="9" ry="7" fill="#E6CCB2" />
+
+  <!-- Plush Body -->
+  <ellipse cx="70" cy="78" rx="28" ry="26" fill="#B08968" stroke="#7F5539" stroke-width="3" />
+  <!-- Soft Tummy Patch with Cute Fabric Stitching -->
+  <ellipse cx="70" cy="80" rx="17" ry="16" fill="#EDE0D4" />
+  <path d="M 64 80 L 76 80" stroke="#7F5539" stroke-width="1.5" stroke-dasharray="2,2" />
+
+  <!-- Plush Arms (Hugging Posture) -->
+  <ellipse cx="38" cy="72" rx="12" ry="10" transform="rotate(-20 38 72)" fill="#B08968" stroke="#7F5539" stroke-width="2.5" />
+  <ellipse cx="102" cy="72" rx="12" ry="10" transform="rotate(20 102 72)" fill="#B08968" stroke="#7F5539" stroke-width="2.5" />
+
+  <!-- Red Satin Bow Tie / Heart Ribbon -->
+  <path d="M 70 54 L 60 48 L 60 60 Z" fill="#EF4444" stroke="#B91C1C" stroke-width="1.5" />
+  <path d="M 70 54 L 80 48 L 80 60 Z" fill="#EF4444" stroke="#B91C1C" stroke-width="1.5" />
+  <circle cx="70" cy="54" r="4" fill="#DC2626" />
+
+  <!-- Plush Head -->
+  <!-- Ears -->
+  <circle cx="46" cy="24" r="13" fill="#B08968" stroke="#7F5539" stroke-width="2.5" />
+  <circle cx="46" cy="24" r="6.5" fill="#E6CCB2" />
+  <circle cx="94" cy="24" r="13" fill="#B08968" stroke="#7F5539" stroke-width="2.5" />
+  <circle cx="94" cy="24" r="6.5" fill="#E6CCB2" />
+
+  <circle cx="70" cy="38" r="25" fill="#B08968" stroke="#7F5539" stroke-width="3" />
+
+  <!-- Snout / Muzzle -->
+  <ellipse cx="70" cy="44" rx="12" ry="9" fill="#EDE0D4" />
+  <!-- Cute Heart-shaped Nose -->
+  <path d="M 70 41 C 70 38 74 38 74 41 C 74 44 70 47 70 47 C 70 47 66 44 66 41 C 66 38 70 38 70 41 Z" fill="#4A3525" />
+  <!-- Gentle Smile -->
+  <path d="M 66 47 Q 70 51 74 47" stroke="#4A3525" stroke-width="1.8" fill="none" stroke-linecap="round" />
+
+  <!-- Friendly Button Eyes with Twinkle -->
+  <circle cx="59" cy="34" r="3.5" fill="#292524" />
+  <circle cx="58" cy="33" r="1.2" fill="#FFFFFF" />
+  <circle cx="81" cy="34" r="3.5" fill="#292524" />
+  <circle cx="80" cy="33" r="1.2" fill="#FFFFFF" />
+
+  <!-- Blushing Rosy Cheeks -->
+  <ellipse cx="53" cy="42" rx="4" ry="2.5" fill="#F472B6" opacity="0.5" />
+  <ellipse cx="87" cy="42" rx="4" ry="2.5" fill="#F472B6" opacity="0.5" />
+</svg>

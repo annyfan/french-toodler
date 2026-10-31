@@ -1,5 +1,7 @@
 import { mediaCustomizationManager } from './MediaCustomizationManager';
-import { VoiceSettings } from '../types';
+import vocabularyData from '../data/vocabulary.json';
+import grammarPairsData from '../data/grammarPairs.json';
+import { WordItem, GrammarPair } from '../types';
 
 function cleanSpeechText(text: string): string {
   if (!text) return '';
@@ -17,33 +19,161 @@ function cleanSpeechText(text: string): string {
   return cleaned;
 }
 
+export function cleanLookupKey(text: string): string {
+  if (!text) return '';
+  return text
+    .toLowerCase()
+    .replace(/[.,?!:;'"()«»]/g, '')
+    .trim()
+    .replace(/\s+/g, ' ');
+}
+
+export function slugifyText(text: string): string {
+  if (!text) return '';
+  return text
+    .normalize('NFKD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9\s_-]/g, '')
+    .trim()
+    .replace(/[\s-]+/g, '_');
+}
+
 // Audio & Speech Manager prioritizing studio-grade Canadian French MP3s with Web Speech fallback and parent customization
 export class SpeechManager {
   private synth: SpeechSynthesis | null = null;
   private voice: SpeechSynthesisVoice | null = null;
   private currentAudio: HTMLAudioElement | null = null;
+  private activeUtterance: SpeechSynthesisUtterance | null = null;
   private rate: number = 0.95; // Natural human pace
   private pitch: number = 1.0; // Natural authentic pitch (no robotic distortion)
   private isEnabled: boolean = true;
   private isReady: boolean = false;
   private audioCache: Map<string, HTMLAudioElement> = new Map();
   private categoryAudioCache: Map<number, HTMLAudioElement> = new Map();
+  private textToAudioId: Map<string, string> = new Map();
   private unsubscribeMedia: (() => void) | null = null;
 
   constructor() {
+    this.buildLookupIndex();
+
     if (typeof window !== 'undefined' && 'speechSynthesis' in window) {
       this.synth = window.speechSynthesis;
       this.applyParentVoiceSettings();
       this.initVoices();
-      if (this.synth.onvoiceschanged !== undefined) {
-        this.synth.onvoiceschanged = () => this.initVoices();
+
+      if (this.synth.addEventListener) {
+        this.synth.addEventListener('voiceschanged', () => this.initVoices());
       }
+      this.synth.onvoiceschanged = () => this.initVoices();
 
       // Listen to parent settings changes
       this.unsubscribeMedia = mediaCustomizationManager.subscribe(() => {
         this.applyParentVoiceSettings();
         this.initVoices();
       });
+    }
+  }
+
+  private buildLookupIndex(): void {
+    // 1. Vocabulary words (all 664 words)
+    const words = vocabularyData as WordItem[];
+    for (const w of words) {
+      const key = cleanLookupKey(w.fr);
+      if (key && !this.textToAudioId.has(key)) {
+        this.textToAudioId.set(key, w.id);
+      }
+      // Handle slash variations like "bedaine/ventre"
+      if (w.fr.includes('/')) {
+        const parts = w.fr.split('/');
+        for (const p of parts) {
+          const pKey = cleanLookupKey(p);
+          if (pKey && !this.textToAudioId.has(pKey)) {
+            this.textToAudioId.set(pKey, w.id);
+          }
+        }
+      }
+    }
+
+    // 2. Grammar pairs (sentences and blocks)
+    const pairs = grammarPairsData as GrammarPair[];
+    for (const p of pairs) {
+      if (p.level1) {
+        const k1 = cleanLookupKey(p.level1);
+        if (k1) this.textToAudioId.set(k1, `pair_${p.id}_l1`);
+      }
+      if (p.level2) {
+        const k2 = cleanLookupKey(p.level2);
+        if (k2) this.textToAudioId.set(k2, `pair_${p.id}_l2`);
+      }
+      if (p.blocks && Array.isArray(p.blocks)) {
+        for (const b of p.blocks) {
+          const bKey = cleanLookupKey(b);
+          const slug = slugifyText(b);
+          if (bKey && slug && !this.textToAudioId.has(bKey)) {
+            this.textToAudioId.set(bKey, `block_${slug}`);
+          }
+        }
+      }
+    }
+
+    // 3. Simon Says prompts and feedback
+    const simonMap: Record<string, string> = {
+      'simon dit touche le nez': 'simon_prompt_nez',
+      'simon dit touche les yeux': 'simon_prompt_yeux',
+      'simon dit touche la bouche': 'simon_prompt_bouche',
+      'simon dit touche les oreilles': 'simon_prompt_oreilles',
+      'simon dit touche les mains': 'simon_prompt_mains',
+      'simon dit saute saute': 'simon_prompt_jump',
+      'simon dit fais dodo': 'simon_prompt_sleep',
+      'simon dit miam miam mange': 'simon_prompt_eat',
+      'simon dit danse': 'simon_prompt_dance',
+      'touche le nez': 'simon_retry_nez',
+      'touche les yeux': 'simon_retry_yeux',
+      'touche la bouche': 'simon_retry_bouche',
+      'touche les oreilles': 'simon_retry_oreilles',
+      'touche les mains': 'simon_retry_mains',
+      'saute saute': 'simon_retry_jump',
+      'fais dodo': 'simon_retry_sleep',
+      'miam miam mange': 'simon_retry_eat',
+      'danse': 'simon_retry_dance',
+      'bravo cest super': 'simon_bravo',
+    };
+    for (const [text, id] of Object.entries(simonMap)) {
+      this.textToAudioId.set(text, id);
+    }
+
+    // 4. Sound Box Peekaboo intro & SFX
+    const sfxMap: Record<string, string> = {
+      'coucou qui est la': 'sfx_peekaboo_intro',
+      'miaou miaou': 'sfx_ani_08',
+      'wouf wouf': 'sfx_ani_11',
+      'meuh meuh': 'sfx_ani_40',
+      'cocorico': 'sfx_ani_13',
+      'coin coin': 'sfx_ani_07',
+      'beee': 'sfx_ani_24',
+      'groin groin': 'sfx_ani_12',
+      'hop hop': 'sfx_ani_21',
+      'vroum vroum': 'sfx_veh_01',
+      'pinpon pinpon': 'sfx_veh_07',
+      'tchou tchou': 'sfx_veh_12',
+      'vrrrrrr': 'sfx_veh_03',
+      'bzzzz': 'sfx_ani_01',
+      'hihan': 'sfx_ani_04',
+      'hiii': 'sfx_ani_09',
+      'croac croac': 'sfx_ani_19',
+      'hou hou': 'sfx_ani_20',
+      'grrr': 'sfx_ani_22',
+      'aouh': 'sfx_ani_23',
+      'cui cui': 'sfx_ani_26',
+      'cot cot cot': 'sfx_ani_34',
+      'ouh ouh ah ah': 'sfx_ani_36',
+      'couic couic': 'sfx_ani_37',
+      'pouet pouet': 'sfx_veh_04',
+      'dring dring': 'sfx_veh_05',
+    };
+    for (const [text, id] of Object.entries(sfxMap)) {
+      this.textToAudioId.set(text, id);
     }
   }
 
@@ -166,13 +296,14 @@ export class SpeechManager {
       }
       this.currentAudio = null;
     }
-    if (this.synth) {
+    if (this.synth && (this.synth.speaking || this.synth.pending)) {
       try {
         this.synth.cancel();
       } catch {
         // Ignore
       }
     }
+    this.activeUtterance = null;
   }
 
   // Play audio data URL directly (for parent custom recording)
@@ -204,16 +335,16 @@ export class SpeechManager {
   }
 
   // Preload a studio MP3 into memory for instant tap response
-  public preloadWordAudio(wordId: string): void {
-    if (!wordId || this.audioCache.has(wordId)) return;
+  public preloadWordAudio(audioId: string): void {
+    if (!audioId || this.audioCache.has(audioId)) return;
     try {
       const baseUrl = import.meta.env.BASE_URL || './';
       const cleanBase = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
-      const audioUrl = `${cleanBase}audio/words/${wordId}.mp3`;
+      const audioUrl = `${cleanBase}audio/words/${audioId}.mp3`;
       const audio = new Audio();
       audio.preload = 'auto';
       audio.src = audioUrl;
-      this.audioCache.set(wordId, audio);
+      this.audioCache.set(audioId, audio);
     } catch {
       // Ignore preload errors
     }
@@ -302,17 +433,32 @@ export class SpeechManager {
       return;
     }
 
-    // 3. Default: Play studio-grade Canadian French MP3 file in audio/words/${wordId}.mp3
-    if (wordId) {
+    // 3. Resolve target audio ID:
+    // Either passed explicitly (wordId) or found via intelligent text lookup
+    let targetAudioId = wordId;
+    if (!targetAudioId && text) {
+      const key = cleanLookupKey(text);
+      targetAudioId = this.textToAudioId.get(key);
+      if (!targetAudioId) {
+        // Try slugifying the text as a block word
+        const slug = slugifyText(text);
+        if (slug) {
+          targetAudioId = `block_${slug}`;
+        }
+      }
+    }
+
+    // 4. Default: Play studio-grade Canadian French MP3 file in audio/words/${targetAudioId}.mp3
+    if (targetAudioId) {
       const baseUrl = import.meta.env.BASE_URL || './';
       const cleanBase = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
-      const audioUrl = `${cleanBase}audio/words/${wordId}.mp3`;
+      const audioUrl = `${cleanBase}audio/words/${targetAudioId}.mp3`;
 
       // Use cached audio if available, otherwise create new
-      let audio = this.audioCache.get(wordId);
+      let audio = this.audioCache.get(targetAudioId);
       if (!audio) {
         audio = new Audio(audioUrl);
-        this.audioCache.set(wordId, audio);
+        this.audioCache.set(targetAudioId, audio);
       } else {
         audio.currentTime = 0;
       }
@@ -334,7 +480,7 @@ export class SpeechManager {
       const playPromise = audio.play();
       if (playPromise !== undefined) {
         playPromise.catch(() => {
-          // Fallback to speech synthesis if audio play fails
+          // Fallback to speech synthesis if audio play fails (e.g. autoplay block)
           this.currentAudio = null;
           this.speakWithSpeechSynthesis(text, onEnd);
         });
@@ -342,7 +488,7 @@ export class SpeechManager {
       return;
     }
 
-    // Default to speech synthesis if no wordId
+    // Default to speech synthesis if no target audio ID
     this.speakWithSpeechSynthesis(text, onEnd);
   }
 
@@ -361,6 +507,14 @@ export class SpeechManager {
 
     this.stopAll();
     const cleanText = cleanSpeechText(text);
+    if (!cleanText) {
+      if (onEnd) onEnd();
+      return;
+    }
+
+    if (this.synth.paused) {
+      this.synth.resume();
+    }
 
     const utterance = new SpeechSynthesisUtterance(cleanText);
     utterance.lang = 'fr-CA';
@@ -376,15 +530,24 @@ export class SpeechManager {
     utterance.rate = rate !== undefined ? rate : this.rate;
     utterance.pitch = pitch !== undefined ? pitch : this.pitch;
 
+    this.activeUtterance = utterance;
+
     utterance.onend = () => {
+      this.activeUtterance = null;
       if (onEnd) onEnd();
     };
 
     utterance.onerror = () => {
+      this.activeUtterance = null;
       if (onEnd) onEnd();
     };
 
-    this.synth.speak(utterance);
+    try {
+      this.synth.speak(utterance);
+    } catch {
+      this.activeUtterance = null;
+      if (onEnd) onEnd();
+    }
   }
 
   private speakWithSpeechSynthesis(text: string, onEnd?: () => void): void {
@@ -394,30 +557,47 @@ export class SpeechManager {
     }
 
     const cleanText = cleanSpeechText(text);
+    if (!cleanText) {
+      if (onEnd) onEnd();
+      return;
+    }
+
+    if (this.synth.paused) {
+      this.synth.resume();
+    }
+
     const utterance = new SpeechSynthesisUtterance(cleanText);
     utterance.lang = 'fr-CA';
 
-    // Strictly ensure a French voice is attached (never allow English voice)
+    // Strictly ensure a French voice is attached if available
     if (!this.voice || !this.isFrenchVoice(this.voice)) {
       this.initVoices();
     }
 
     if (this.voice && this.isFrenchVoice(this.voice)) {
       utterance.voice = this.voice;
-      utterance.rate = this.rate;
-      utterance.pitch = this.pitch;
+    }
 
-      utterance.onend = () => {
-        if (onEnd) onEnd();
-      };
+    utterance.rate = this.rate;
+    utterance.pitch = this.pitch;
 
-      utterance.onerror = () => {
-        if (onEnd) onEnd();
-      };
+    // Retain reference to prevent Chrome garbage-collection speech cut-off
+    this.activeUtterance = utterance;
 
+    utterance.onend = () => {
+      this.activeUtterance = null;
+      if (onEnd) onEnd();
+    };
+
+    utterance.onerror = () => {
+      this.activeUtterance = null;
+      if (onEnd) onEnd();
+    };
+
+    try {
       this.synth.speak(utterance);
-    } else {
-      console.warn('SpeechSynthesis skipped: No French voice available on system to prevent English phonetic distortion.');
+    } catch {
+      this.activeUtterance = null;
       if (onEnd) onEnd();
     }
   }

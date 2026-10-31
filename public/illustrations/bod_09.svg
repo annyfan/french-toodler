@@ -1,1 +1,35 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path fill="#5C913B" d="M1.062 5.125s4.875-5 10-5C17.188.125 19 5.062 19 5.062s.625-4 5-4 6.938 3.125 6.938 3.125-3.562 2.125-4.625 2.562c-2.801 1.153-11.375 3.562-15.375 2.562S1.062 5.125 1.062 5.125z"/><path fill="#FF886C" d="M18 6s1.042-.896 6-.896c6.542 0 12 4.812 12 12.927 0 11.531-14.958 17.881-14.958 17.881S1 34.833 1 17.977C1 8.018 7.75 5 12 5c4.958 0 6 1 6 1z"/><path fill="#77B255" d="M1.062 5.125s4.875-5 10-5C17.188.125 19 5.062 19 5.062s-4.062 5.25-8.062 4.25-9.876-4.187-9.876-4.187z"/><path fill="#DD2E44" d="M22.999 30c-.19 0-.383-.055-.554-.168-.46-.307-.584-.927-.277-1.387C22.183 28.423 24 25.538 24 19c0-6.445-4.578-10.182-4.625-10.219-.431-.345-.501-.974-.156-1.405.346-.431.975-.501 1.406-.156C20.844 7.395 26 11.604 26 19c0 7.22-2.079 10.422-2.168 10.555-.192.289-.51.445-.833.445z"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 120" width="100%" height="100%">
+    <ellipse cx="70" cy="112" rx="50" ry="6" fill="rgba(0,0,0,0.12)" />
+    <!-- Toddler Back View with cute bloomers/shorts highlighting fesses -->
+    <g transform="translate(32, 12)">
+      <!-- Back of toddler head with curls -->
+      <circle cx="38" cy="18" r="16" fill="#F59E0B" stroke="#B45309" stroke-width="2" />
+      <circle cx="30" cy="10" r="5" fill="#FBBF24" />
+      <circle cx="46" cy="10" r="5" fill="#FBBF24" />
+      <circle cx="38" cy="8" r="5" fill="#FBBF24" />
+      <!-- Neck -->
+      <rect x="34" y="30" width="8" height="8" fill="#FDE68A" />
+      <!-- Back of T-shirt -->
+      <path d="M 18 36 L 58 36 L 56 56 L 20 56 Z" fill="#38BDF8" stroke="#0284C7" stroke-width="2" />
+      <!-- Two Chubby Rounded Buttocks in cute polka-dot bloomers -->
+      <!-- Left cheek -->
+      <ellipse cx="26" cy="68" rx="17" ry="16" fill="#F472B6" stroke="#DB2777" stroke-width="2.5" />
+      <!-- Right cheek -->
+      <ellipse cx="50" cy="68" rx="17" ry="16" fill="#F472B6" stroke="#DB2777" stroke-width="2.5" />
+      <!-- Center seam dividing the buttocks -->
+      <path d="M 38 56 Q 38 72 38 82" stroke="#BE185D" stroke-width="2" fill="none" />
+      <!-- Cute white polka dots on bloomers -->
+      <circle cx="20" cy="66" r="3" fill="#FFFFFF" />
+      <circle cx="28" cy="74" r="3" fill="#FFFFFF" />
+      <circle cx="48" cy="74" r="3" fill="#FFFFFF" />
+      <circle cx="56" cy="66" r="3" fill="#FFFFFF" />
+      <circle cx="38" cy="62" r="2.5" fill="#FFFFFF" />
+      <!-- Chubby Toddler Legs below bloomers -->
+      <path d="M 18 80 L 16 98 C 16 102 24 102 26 98 L 28 82" fill="#FDE68A" stroke="#D97706" stroke-width="2" />
+      <path d="M 48 82 L 50 98 C 50 102 58 102 60 98 L 58 80" fill="#FDE68A" stroke="#D97706" stroke-width="2" />
+    </g>
+    <!-- Friendly sparkle & indicator bracket around the fesses -->
+    <path d="M 38 74 Q 28 80 34 90" stroke="#F43F5E" stroke-width="2" fill="none" stroke-linecap="round" />
+    <path d="M 102 74 Q 112 80 106 90" stroke="#F43F5E" stroke-width="2" fill="none" stroke-linecap="round" />
+    <polygon points="106,62 108,65 111,66 108,67 106,70 104,67 101,66 104,65" fill="#FACC15" />
+  </svg>

@@ -1,1 +1,30 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path fill="#3B88C3" d="M20.182 0H10v4.568L3.818 33.682 11.545 36l6.41-23.182z"/><path fill="#3B88C3" d="M15.818 0H26v4.568l6.182 29.114L24.454 36l-6.409-23.182z"/><path fill="#269" d="M10 2h16v2H10zm9 10h-2l-4-2h10z"/><path fill="#269" d="M12 0h2v3h-2zm10 0h2v3h-2zm-6 4h2v7h-2z"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 120" width="100%" height="100%">
+    <ellipse cx="70" cy="112" rx="54" ry="6" fill="rgba(0,0,0,0.12)" />
+    <!-- Khaki / Olive Everyday Toddler Trousers -->
+    <g transform="translate(34, 10)">
+      <!-- Comfortable Elastic Waistband -->
+      <rect x="6" y="2" width="60" height="14" rx="4" fill="#A16207" stroke="#713F12" stroke-width="2.5" />
+      <!-- Ribbed elastic lines on waistband -->
+      <line x1="12" y1="2" x2="12" y2="16" stroke="#CA8A04" stroke-width="1.5" />
+      <line x1="18" y1="2" x2="18" y2="16" stroke="#CA8A04" stroke-width="1.5" />
+      <line x1="54" y1="2" x2="54" y2="16" stroke="#CA8A04" stroke-width="1.5" />
+      <line x1="60" y1="2" x2="60" y2="16" stroke="#CA8A04" stroke-width="1.5" />
+      <!-- Cute tied white drawstring cord at waist center -->
+      <circle cx="36" cy="9" r="2.5" fill="#FFFFFF" />
+      <path d="M 36 9 Q 30 18 26 22 M 36 9 Q 42 18 46 22" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" />
+      <!-- Main Pant Legs Body (Warm Khaki Tan fabric) -->
+      <path d="M 6 16 L 8 88 L 30 88 L 36 44 L 42 88 L 64 88 L 66 16 Z" fill="#D97706" stroke="#713F12" stroke-width="2.5" />
+      <!-- Slanted Chino Side Pockets -->
+      <line x1="8" y1="24" x2="22" y2="38" stroke="#713F12" stroke-width="2" stroke-linecap="round" />
+      <line x1="64" y1="24" x2="50" y2="38" stroke="#713F12" stroke-width="2" stroke-linecap="round" />
+      <!-- Side Cargo Flap Pocket on left leg -->
+      <rect x="8" y="44" width="14" height="16" rx="2" fill="#B45309" stroke="#713F12" stroke-width="1.5" />
+      <polygon points="7,44 23,44 15,48" fill="#713F12" />
+      <!-- Center pleats / crease lines -->
+      <line x1="19" y1="36" x2="19" y2="84" stroke="#B45309" stroke-width="1.5" />
+      <line x1="53" y1="36" x2="53" y2="84" stroke="#B45309" stroke-width="1.5" />
+      <!-- Clean Cuffed Hem at Ankle -->
+      <rect x="7" y="84" width="24" height="6" rx="2" fill="#B45309" stroke="#713F12" stroke-width="1.5" />
+      <rect x="41" y="84" width="24" height="6" rx="2" fill="#B45309" stroke="#713F12" stroke-width="1.5" />
+    </g>
+  </svg>

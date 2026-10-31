@@ -1,1 +1,40 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path fill="#C1694F" d="M19.175 16.825c-.706-.706-.706-1.861 0-2.567L32.433 1C33.139.294 34.294.294 35 1c.706.706.706 1.861 0 2.567L21.742 16.825c-.706.706-1.861.706-2.567 0z"/><path fill="#66757F" d="M8.839 27.365l-.204-.204c-.941-.941-.941-2.48 0-3.42l8.35-8.35c.941-.941 2.48-.941 3.42 0l.204.204c.941.941.941 2.48 0 3.42l-8.35 8.35c-.94.941-2.48.941-3.42 0z"/><path fill="#FFCC4D" d="M19.389 26.341c1.688-1.688.671-5.441-1.809-7.921s-6.233-3.497-7.921-1.809L0 26.16 9.84 36l9.549-9.659z"/><path fill="#FFAC33" d="M2.02 28.18l8.66-8.658.58.58L2.6 28.76zm1.74 1.74l8.66-8.659.58.58-8.66 8.66zm1.74 1.74L14.158 23l.58.58-8.66 8.66zm1.74 1.74l8.659-8.66.58.58-8.66 8.659z"/><path fill="#55ACEE" d="M9.875 16.43c-.073.059-.149.114-.216.181L7.46 18.779l9.761 9.761 2.167-2.199c.067-.067.123-.143.181-.216L9.875 16.43z"/><path fill="#269" d="M8.882 18.221l.235-.568 9.225 9.224-.572.232z"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 120" width="100%" height="100%">
+    <ellipse cx="70" cy="112" rx="56" ry="6" fill="rgba(0,0,0,0.12)" />
+    <!-- Vacuum Canister Body (Teal & Silver on wheels) -->
+    <g transform="translate(68, 44)">
+      <!-- Canister Body -->
+      <path d="M 10 24 C 10 8 46 8 50 24 L 54 46 C 54 54 10 54 10 46 Z" fill="#0D9488" stroke="#115E59" stroke-width="2.5" />
+      <!-- Metallic Accent Cap -->
+      <ellipse cx="30" cy="20" rx="18" ry="8" fill="#5EEAD4" />
+      <!-- Carrying Handle -->
+      <path d="M 20 16 Q 30 8 40 16" stroke="#115E59" stroke-width="4" stroke-linecap="round" fill="none" />
+      <!-- Power button -->
+      <circle cx="30" cy="28" r="4" fill="#EF4444" stroke="#B91C1C" stroke-width="1.2" />
+      <!-- Big Wheels -->
+      <circle cx="16" cy="48" r="10" fill="#334155" stroke="#1E293B" stroke-width="2" />
+      <circle cx="16" cy="48" r="4" fill="#CBD5E1" />
+      <circle cx="48" cy="48" r="10" fill="#334155" stroke="#1E293B" stroke-width="2" />
+      <circle cx="48" cy="48" r="4" fill="#CBD5E1" />
+    </g>
+    <!-- Flexible Ribbed Hose -->
+    <path d="M 76 66 C 56 60 48 30 64 22 C 78 14 74 34 54 44" stroke="#94A3B8" stroke-width="6" fill="none" stroke-linecap="round" />
+    <path d="M 76 66 C 56 60 48 30 64 22 C 78 14 74 34 54 44" stroke="#64748B" stroke-width="2" fill="none" stroke-dasharray="3,3" />
+    <!-- Silver Vacuum Wand & Handle -->
+    <g transform="translate(18, 28)">
+      <!-- Ergonomic Grip Handle -->
+      <path d="M 36 16 L 30 24" stroke="#0D9488" stroke-width="5" stroke-linecap="round" />
+      <!-- Silver Metal Extension Wand -->
+      <line x1="30" y1="24" x2="16" y2="72" stroke="#CBD5E1" stroke-width="4.5" stroke-linecap="round" />
+      <!-- Floor Suction Brush Nozzle Head -->
+      <g transform="translate(16, 72)">
+        <polygon points="-14,8 14,8 8,0 -8,0" fill="#0D9488" stroke="#115E59" stroke-width="2" />
+        <rect x="-16" y="8" width="32" height="4" rx="2" fill="#334155" />
+        <!-- Suction action lines / clean sparkles -->
+        <line x1="-10" y1="14" x2="-10" y2="18" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" />
+        <line x1="0" y1="14" x2="0" y2="18" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" />
+        <line x1="10" y1="14" x2="10" y2="18" stroke="#38BDF8" stroke-width="2" stroke-linecap="round" />
+      </g>
+    </g>
+    <!-- Sparkles of clean floor -->
+    <polygon points="26,100 28,103 31,104 28,105 29,108 26,106 24,108 25,105 22,104 25,103" fill="#FDE047" />
+  </svg>

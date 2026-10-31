@@ -1,11 +1,22 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="100%" height="100%">
-    <!-- Shadow -->
-    <ellipse cx="50" cy="92" rx="34" ry="5" fill="rgba(0,0,0,0.12)" />
-    <!-- Bright Yellow Banana -->
-    <path d="M 18 28 C 36 14 74 24 88 64 C 76 76 44 68 24 44 C 16 36 16 30 18 28 Z" fill="#FFD166" stroke="#E2AC00" stroke-width="3.5" />
-    <path d="M 88 64 C 82 78 50 82 24 54 C 44 68 76 68 88 64 Z" fill="#E2AC00" />
-    <!-- Tips -->
-    <circle cx="16" cy="28" r="3.5" fill="#6F4E37" />
-    <circle cx="89" cy="65" r="3.5" fill="#6F4E37" />
-    <path d="M 32 32 Q 54 38 72 52" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity="0.6" fill="none" />
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 120" width="100%" height="100%">
+    <ellipse cx="70" cy="112" rx="48" ry="6" fill="rgba(0,0,0,0.12)" />
+    <!-- Yellow peel back -->
+    <path d="M 40 45 Q 30 75 55 98 Q 75 80 55 50 Z" fill="#FACC15" stroke="#CA8A04" stroke-width="2.5" />
+    <path d="M 85 42 Q 105 68 85 96 Q 70 82 78 50 Z" fill="#FACC15" stroke="#CA8A04" stroke-width="2.5" />
+    <!-- Creamy peeled banana fruit core -->
+    <path d="M 52 95 Q 60 55 64 25 C 66 18 76 18 78 25 Q 80 55 74 95 Z" fill="#FEF08A" stroke="#EAB308" stroke-width="2" />
+    <!-- Banana inner fruit soft ribs -->
+    <path d="M 64 25 Q 67 55 64 94" stroke="#FDE047" stroke-width="2" fill="none" />
+    <path d="M 72 25 Q 73 55 70 94" stroke="#FDE047" stroke-width="2" fill="none" />
+    <ellipse cx="70" cy="22" rx="5" ry="3" fill="#CA8A04" />
+    <!-- Peel front flaps folding down -->
+    <path d="M 54 62 Q 42 75 32 82 Q 44 88 56 74 Z" fill="#FDE047" stroke="#CA8A04" stroke-width="2.5" />
+    <path d="M 72 62 Q 88 74 98 80 Q 86 88 70 74 Z" fill="#FDE047" stroke="#CA8A04" stroke-width="2.5" />
+    <path d="M 62 65 Q 64 82 62 92 Q 68 82 68 65 Z" fill="#FACC15" stroke="#CA8A04" stroke-width="2" />
+    <!-- Banana base stem -->
+    <path d="M 56 92 Q 62 108 66 112 Q 72 110 70 92 Z" fill="#65A30D" stroke="#4D7C0F" stroke-width="2" />
+    <!-- Highlights & cute sparkles -->
+    <circle cx="62" cy="38" r="2" fill="#FFFFFF" />
+    <path d="M 62 44 L 62 56" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" />
+    <polygon points="96,30 98,34 102,36 98,38 96,42 94,38 90,36 94,34" fill="#FBBF24" />
   </svg>

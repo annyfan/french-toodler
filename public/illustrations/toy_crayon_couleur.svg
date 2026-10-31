@@ -1,1 +1,54 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path fill="#D99E82" d="M18 3.143c-9.941 0-18 6.908-18 15.428 0 1.066.126 2.107.367 3.112C2.146 24.744 3.377 22.812 9 20c5.727-2.864 0 4-2 8-.615 1.23-.282 2.271.56 3.124C10.506 32.928 14.104 34 18 34c9.941 0 18-6.907 18-15.429 0-8.52-8.059-15.428-18-15.428zm2.849 24.447c-.395 1.346-2.46 1.924-4.613 1.291-2.153-.632-3.578-2.234-3.183-3.581.395-1.346 2.46-1.924 4.613-1.29 2.153.631 3.578 2.233 3.183 3.58z"/><circle fill="#5C913B" cx="10" cy="11" r="3"/><circle fill="#269" cx="20" cy="9" r="3"/><circle fill="#DD2E44" cx="29" cy="15" r="3"/><circle fill="#FFCC4D" cx="28" cy="24" r="3"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 120" width="100%" height="100%">
+  <!-- Soft ground shadow -->
+  <ellipse cx="70" cy="112" rx="52" ry="6" fill="rgba(0,0,0,0.14)" />
+
+  <!-- Cheerful colorful rainbow arc drawn by the pencils -->
+  <path d="M 22 96 C 28 40 112 36 122 88" stroke="#EF476F" stroke-width="3" fill="none" opacity="0.6" stroke-linecap="round" />
+  <path d="M 26 98 C 32 46 108 42 118 90" stroke="#FFD166" stroke-width="3" fill="none" opacity="0.6" stroke-linecap="round" />
+  <path d="M 30 100 C 36 52 104 48 114 92" stroke="#06D6A0" stroke-width="3" fill="none" opacity="0.6" stroke-linecap="round" />
+  <path d="M 34 102 C 40 58 100 54 110 94" stroke="#118AB2" stroke-width="3" fill="none" opacity="0.6" stroke-linecap="round" />
+
+  <!-- 1. Pencil Red (Tilted left -24 deg) -->
+  <g transform="translate(42, 68) rotate(-24)">
+    <rect x="-6" y="-30" width="12" height="66" rx="2" fill="#EF476F" stroke="#BE123C" stroke-width="1.5" />
+    <line x1="-2" y1="-30" x2="-2" y2="36" stroke="#FDA4AF" stroke-width="1.5" />
+    <!-- Sharpened Wood Cone -->
+    <polygon points="-6,-30 6,-30 0,-48" fill="#FDE68A" stroke="#D97706" stroke-width="1.2" />
+    <!-- Colored Tip -->
+    <polygon points="-2,-42 2,-42 0,-48" fill="#EF476F" />
+  </g>
+
+  <!-- 2. Pencil Yellow (Tilted left -8 deg) -->
+  <g transform="translate(60, 64) rotate(-8)">
+    <rect x="-6" y="-34" width="12" height="74" rx="2" fill="#FFD166" stroke="#D97706" stroke-width="1.5" />
+    <line x1="-2" y1="-34" x2="-2" y2="40" stroke="#FEF08A" stroke-width="1.5" />
+    <!-- Sharpened Wood Cone -->
+    <polygon points="-6,-34 6,-34 0,-52" fill="#FDE68A" stroke="#D97706" stroke-width="1.2" />
+    <!-- Colored Tip -->
+    <polygon points="-2,-46 2,-46 0,-52" fill="#F59E0B" />
+  </g>
+
+  <!-- 3. Pencil Green (Tilted right +8 deg) -->
+  <g transform="translate(80, 64) rotate(8)">
+    <rect x="-6" y="-34" width="12" height="74" rx="2" fill="#06D6A0" stroke="#059669" stroke-width="1.5" />
+    <line x1="-2" y1="-34" x2="-2" y2="40" stroke="#A7F3D0" stroke-width="1.5" />
+    <!-- Sharpened Wood Cone -->
+    <polygon points="-6,-34 6,-34 0,-52" fill="#FDE68A" stroke="#D97706" stroke-width="1.2" />
+    <!-- Colored Tip -->
+    <polygon points="-2,-46 2,-46 0,-52" fill="#059669" />
+  </g>
+
+  <!-- 4. Pencil Blue (Tilted right +24 deg) -->
+  <g transform="translate(98, 68) rotate(24)">
+    <rect x="-6" y="-30" width="12" height="66" rx="2" fill="#118AB2" stroke="#075985" stroke-width="1.5" />
+    <line x1="-2" y1="-30" x2="-2" y2="36" stroke="#BAE6FD" stroke-width="1.5" />
+    <!-- Sharpened Wood Cone -->
+    <polygon points="-6,-30 6,-30 0,-48" fill="#FDE68A" stroke="#D97706" stroke-width="1.2" />
+    <!-- Colored Tip -->
+    <polygon points="-2,-42 2,-42 0,-48" fill="#0369A1" />
+  </g>
+
+  <!-- Cute Star Sparkles -->
+  <circle cx="28" cy="30" r="3" fill="#FFD166" />
+  <circle cx="116" cy="32" r="3.5" fill="#EF476F" />
+</svg>

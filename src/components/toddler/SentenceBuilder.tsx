@@ -4,7 +4,7 @@ import confetti from 'canvas-confetti';
 import { GrammarPair } from '../../types';
 import { contentManager } from '../../engine/ContentManager';
 import { audioManager } from '../../engine/AudioContextManager';
-import { speechManager } from '../../engine/SpeechManager';
+import { speechManager, slugifyText } from '../../engine/SpeechManager';
 import { progressTracker } from '../../engine/ProgressTracker';
 import { ToddlerGraphic } from '../common/ToddlerGraphic';
 
@@ -42,12 +42,14 @@ export const SentenceBuilder: React.FC = () => {
     if (slotNumber === 1 && !placedSlots.slot1) {
       audioManager.playSnap();
       setPlacedSlots(prev => ({ ...prev, slot1: true }));
-      speechManager.speak(word1);
+      const slug = slugifyText(word1);
+      speechManager.speak(word1, `block_${slug}`);
       checkCompletion({ slot1: true, slot2: placedSlots.slot2 });
     } else if (slotNumber === 2 && !placedSlots.slot2) {
       audioManager.playSnap();
       setPlacedSlots(prev => ({ ...prev, slot2: true }));
-      speechManager.speak(word2);
+      const slug = slugifyText(word2);
+      speechManager.speak(word2, `block_${slug}`);
       checkCompletion({ slot1: placedSlots.slot1, slot2: true });
     }
   };
@@ -61,14 +63,21 @@ export const SentenceBuilder: React.FC = () => {
         origin: { y: 0.55 }
       });
 
-      // Speak compound sentence in French based on level
+      // Speak compound sentence in French based on level (pre-rendered studio audio)
       const sentenceToSpeak = level === 1 ? currentPair.level1 : currentPair.level2;
+      const sentenceAudioId = `pair_${currentPair.id}_l${level}`;
       setTimeout(() => {
-        speechManager.speak(sentenceToSpeak);
+        speechManager.speak(sentenceToSpeak, sentenceAudioId);
       }, 350);
 
       progressTracker.recordGrammarInteraction(currentPair.id, level);
     }
+  };
+
+  const replaySentence = () => {
+    const sentenceToSpeak = level === 1 ? currentPair.level1 : currentPair.level2;
+    const sentenceAudioId = `pair_${currentPair.id}_l${level}`;
+    speechManager.speak(sentenceToSpeak, sentenceAudioId);
   };
 
   const handleNext = () => {
@@ -123,10 +132,15 @@ export const SentenceBuilder: React.FC = () => {
           {/* Slot 1 */}
           <motion.div
             layout
-            className={`w-32 h-32 md:w-44 md:h-44 rounded-3xl border-4 flex flex-col items-center justify-center shadow-md transition-all ${
+            onClick={() => {
+              if (placedSlots.slot1) {
+                speechManager.speak(word1, `block_${slugifyText(word1)}`);
+              }
+            }}
+            className={`w-32 h-32 md:w-44 md:h-44 rounded-3xl border-4 flex flex-col items-center justify-center shadow-md transition-all cursor-pointer ${
               placedSlots.slot1
-                ? 'bg-amber-100 border-amber-400 scale-105'
-                : 'bg-slate-100/70 border-slate-300 border-dashed'
+                ? 'bg-amber-100 border-amber-400 scale-105 hover:bg-amber-200/80'
+                : 'bg-slate-100/70 border-slate-300 border-dashed cursor-default'
             }`}
           >
             <AnimatePresence>
@@ -162,10 +176,15 @@ export const SentenceBuilder: React.FC = () => {
           {/* Slot 2 */}
           <motion.div
             layout
-            className={`w-32 h-32 md:w-44 md:h-44 rounded-3xl border-4 flex flex-col items-center justify-center shadow-md transition-all ${
+            onClick={() => {
+              if (placedSlots.slot2) {
+                speechManager.speak(word2, `block_${slugifyText(word2)}`);
+              }
+            }}
+            className={`w-32 h-32 md:w-44 md:h-44 rounded-3xl border-4 flex flex-col items-center justify-center shadow-md transition-all cursor-pointer ${
               placedSlots.slot2
-                ? 'bg-sky-100 border-sky-400 scale-105'
-                : 'bg-slate-100/70 border-slate-300 border-dashed'
+                ? 'bg-sky-100 border-sky-400 scale-105 hover:bg-sky-200/80'
+                : 'bg-slate-100/70 border-slate-300 border-dashed cursor-default'
             }`}
           >
             <AnimatePresence>
@@ -195,8 +214,12 @@ export const SentenceBuilder: React.FC = () => {
             animate={{ y: 0, opacity: 1 }}
             className="flex flex-col items-center gap-3"
           >
-            <div className="bg-white px-6 py-3 rounded-3xl shadow-xl border-4 border-emerald-400 flex items-center gap-3">
-              <span className="text-3xl">🎉</span>
+            <div
+              onClick={replaySentence}
+              className="bg-white px-6 py-3 rounded-3xl shadow-xl border-4 border-emerald-400 flex items-center gap-3 cursor-pointer hover:bg-emerald-50 transition-colors group"
+              title="Réécouter la phrase"
+            >
+              <span className="text-3xl group-hover:scale-110 transition-transform">🔊</span>
               <p className="text-xl md:text-2xl font-extrabold text-emerald-700 text-center">
                 "{level === 1 ? currentPair.level1 : currentPair.level2}"
               </p>

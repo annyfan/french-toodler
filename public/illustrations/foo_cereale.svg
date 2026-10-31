@@ -1,1 +1,42 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path fill="#A0041E" d="M16 31c8.837 0 16-7.163 16-16H0c0 8.837 7.164 16 16 16z"/><ellipse fill="#EA596E" cx="16" cy="15" rx="16.051" ry="8.917"/><ellipse fill="#662113" cx="16" cy="15" rx="14.641" ry="7.719"/><path fill="#99AAB5" d="M34 8c-1 0-4 1-8 4-4.525 3.394-7.596 2.187-7.596 2.187l.001.003C16.981 13.453 15.087 13 13 13c-4.418 0-8 2.015-8 4.5S8.582 22 13 22c2.773 0 5.216-.794 6.651-2 0 0 4.995-4.431 7.349-6 3-2 5-3 7-3s2-3 0-3z"/><ellipse fill="#CCD6DD" cx="13" cy="19" rx="5" ry="2.5"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 120" width="100%" height="100%">
+    <ellipse cx="70" cy="112" rx="52" ry="6" fill="rgba(0,0,0,0.12)" />
+    <!-- Bowl Outer -->
+    <path d="M 22 56 C 24 96 116 96 118 56 Z" fill="#38BDF8" stroke="#0284C7" stroke-width="3.5" />
+    <!-- Bowl Base Foot -->
+    <ellipse cx="70" cy="94" rx="28" ry="6" fill="#0284C7" />
+    <ellipse cx="70" cy="92" rx="26" ry="5" fill="#38BDF8" />
+    <!-- Bowl Rim Rim Inner -->
+    <ellipse cx="70" cy="56" rx="48" ry="18" fill="#BAE6FD" stroke="#0284C7" stroke-width="3" />
+    <!-- Milk level -->
+    <ellipse cx="70" cy="57" rx="44" ry="15" fill="#FFFFFF" />
+    <!-- Colorful Cereal Loops floating in milk -->
+    <!-- Red loop -->
+    <ellipse cx="48" cy="54" rx="8" ry="5" fill="#EF4444" stroke="#DC2626" stroke-width="1.5" />
+    <ellipse cx="48" cy="54" rx="3.5" ry="2" fill="#FFFFFF" />
+    <!-- Orange loop -->
+    <ellipse cx="66" cy="52" rx="7.5" ry="4.5" fill="#F97316" stroke="#EA580C" stroke-width="1.5" />
+    <ellipse cx="66" cy="52" rx="3" ry="1.8" fill="#FFFFFF" />
+    <!-- Green loop -->
+    <ellipse cx="84" cy="54" rx="8" ry="5" fill="#22C55E" stroke="#16A34A" stroke-width="1.5" />
+    <ellipse cx="84" cy="54" rx="3.5" ry="2" fill="#FFFFFF" />
+    <!-- Yellow loop -->
+    <ellipse cx="54" cy="62" rx="7.5" ry="4.5" fill="#EAB308" stroke="#CA8A04" stroke-width="1.5" />
+    <ellipse cx="54" cy="62" rx="3" ry="1.8" fill="#FFFFFF" />
+    <!-- Purple loop -->
+    <ellipse cx="72" cy="63" rx="8" ry="5" fill="#A855F7" stroke="#9333EA" stroke-width="1.5" />
+    <ellipse cx="72" cy="63" rx="3.5" ry="2" fill="#FFFFFF" />
+    <!-- Blue loop -->
+    <ellipse cx="90" cy="61" rx="7" ry="4.5" fill="#3B82F6" stroke="#2563EB" stroke-width="1.5" />
+    <ellipse cx="90" cy="61" rx="3" ry="1.8" fill="#FFFFFF" />
+    <!-- Pink loop -->
+    <ellipse cx="38" cy="60" rx="6.5" ry="4" fill="#EC4899" stroke="#DB2777" stroke-width="1.5" />
+    <ellipse cx="38" cy="60" rx="2.5" ry="1.5" fill="#FFFFFF" />
+    <!-- Spoon sticking out -->
+    <path d="M 96 32 C 98 18 108 12 116 16 C 122 20 118 32 106 48 L 92 64 Z" fill="#E2E8F0" stroke="#94A3B8" stroke-width="2.5" />
+    <ellipse cx="112" cy="22" rx="7" ry="5" fill="#F8FAFC" />
+    <!-- Bowl Highlight & Face/Dots -->
+    <path d="M 32 68 Q 70 90 108 68" stroke="#E0F2FE" stroke-width="3" fill="none" stroke-linecap="round" />
+    <circle cx="64" cy="78" r="3" fill="#0369A1" />
+    <circle cx="76" cy="78" r="3" fill="#0369A1" />
+    <path d="M 68 83 Q 70 86 72 83" stroke="#0369A1" stroke-width="2" fill="none" stroke-linecap="round" />
+  </svg>

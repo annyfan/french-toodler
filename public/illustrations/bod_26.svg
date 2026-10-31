@@ -1,1 +1,39 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><circle fill="#FFCC4D" cx="18" cy="18" r="18"/><path fill="#664500" d="M18 21c-3.623 0-6.027-.422-9-1-.679-.131-2 0-2 2 0 4 4.595 9 11 9 6.404 0 11-5 11-9 0-2-1.321-2.132-2-2-2.973.578-5.377 1-9 1z"/><path fill="#FFF" d="M9 22s3 1 9 1 9-1 9-1-2 4-9 4-9-4-9-4z"/><ellipse fill="#664500" cx="12" cy="13.5" rx="2.5" ry="3.5"/><ellipse fill="#664500" cx="24" cy="13.5" rx="2.5" ry="3.5"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 120" width="100%" height="100%">
+    <ellipse cx="70" cy="112" rx="52" ry="6" fill="rgba(0,0,0,0.12)" />
+    <!-- Bright Smiling Toddler Face -->
+    <g transform="translate(32, 10)">
+      <!-- Main Face Oval -->
+      <ellipse cx="38" cy="48" rx="36" ry="38" fill="#FDE68A" stroke="#D97706" stroke-width="3" />
+      <!-- Left & Right Ears -->
+      <ellipse cx="2" cy="48" rx="6" ry="10" fill="#FDE68A" stroke="#D97706" stroke-width="2" />
+      <ellipse cx="74" cy="48" rx="6" ry="10" fill="#FDE68A" stroke="#D97706" stroke-width="2" />
+      <!-- Hair Bangs on forehead -->
+      <path d="M 8 32 C 16 18 38 16 38 16 C 38 16 60 18 68 32 C 60 26 48 24 38 26 C 28 24 16 26 8 32 Z" fill="#B45309" stroke="#78350F" stroke-width="2" />
+      <!-- Expressive Big Sparkling Eyes -->
+      <!-- Left Eye -->
+      <ellipse cx="25" cy="44" rx="6" ry="8" fill="#FFFFFF" stroke="#78350F" stroke-width="1.8" />
+      <circle cx="26" cy="44" r="4.5" fill="#1D4ED8" />
+      <circle cx="27" cy="44" r="2.5" fill="#000000" />
+      <circle cx="28" cy="42" r="1.5" fill="#FFFFFF" />
+      <!-- Eyebrow -->
+      <path d="M 19 32 Q 25 28 31 32" stroke="#78350F" stroke-width="2.5" stroke-linecap="round" fill="none" />
+      <!-- Right Eye -->
+      <ellipse cx="51" cy="44" rx="6" ry="8" fill="#FFFFFF" stroke="#78350F" stroke-width="1.8" />
+      <circle cx="50" cy="44" r="4.5" fill="#1D4ED8" />
+      <circle cx="49" cy="44" r="2.5" fill="#000000" />
+      <circle cx="50" cy="42" r="1.5" fill="#FFFFFF" />
+      <!-- Eyebrow -->
+      <path d="M 45 32 Q 51 28 57 32" stroke="#78350F" stroke-width="2.5" stroke-linecap="round" fill="none" />
+      <!-- Cute Button Nose -->
+      <ellipse cx="38" cy="52" rx="3.5" ry="2.5" fill="#F59E0B" />
+      <!-- Big Happy Grinning Mouth with Tongue -->
+      <path d="M 24 60 C 24 78 52 78 52 60 Z" fill="#B91C1C" stroke="#991B1B" stroke-width="2.5" />
+      <!-- White top teeth row -->
+      <path d="M 26 60 L 50 60 C 48 64 28 64 26 60 Z" fill="#FFFFFF" />
+      <!-- Pink Tongue -->
+      <path d="M 32 70 C 32 66 44 66 44 70 C 44 74 32 74 32 70 Z" fill="#F472B6" />
+      <!-- Rosy Cheeks -->
+      <ellipse cx="16" cy="56" rx="6" ry="4" fill="#F472B6" opacity="0.8" />
+      <ellipse cx="60" cy="56" rx="6" ry="4" fill="#F472B6" opacity="0.8" />
+    </g>
+  </svg>

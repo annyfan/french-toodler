@@ -1,1 +1,27 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path fill="#E1E8ED" d="M7 0h17v24H7z"/><path fill="#99AAB5" d="M7 12h17v12H7z"/><ellipse fill="#CCD6DD" cx="7" cy="12" rx="7" ry="12"/><ellipse fill="#E1E8ED" cx="24" cy="12" rx="8" ry="12"/><path fill="#E1E8ED" d="M32 12v12c0 9 4 12 4 12H18s-4-3-4-12V11l18 1z"/><path fill="#F5F8FA" d="M32 12c0-4.924-1.979-9.15-4.807-11H11.322C13.549 3.284 15 7.316 15 12v14c.429 5.683 2.683 8.3 3.383 9H35.05C33.867 33.496 32 30.151 32 24V12z"/><ellipse fill="#99AAB5" cx="6" cy="12" rx="3" ry="5"/><path fill="#66757F" d="M3.25 10.01C3.712 8.24 4.768 7 6 7c1.657 0 3 2.239 3 5 0 .616-.076 1.2-.198 1.745-.649-2.088-2.871-3.642-5.552-3.735z"/><path fill="#CCD6DD" d="M16.5 13H15v-1h1.5c.275 0 .5.225.5.5s-.225.5-.5.5zm4 0h-2c-.275 0-.5-.225-.5-.5s.225-.5.5-.5h2c.275 0 .5.225.5.5s-.225.5-.5.5zm4 0h-2c-.275 0-.5-.225-.5-.5s.225-.5.5-.5h2c.275 0 .5.225.5.5s-.225.5-.5.5zm4 0h-2c-.275 0-.5-.225-.5-.5s.225-.5.5-.5h2c.275 0 .5.225.5.5s-.225.5-.5.5zm3.5 0h-1.5c-.275 0-.5-.225-.5-.5s.225-.5.5-.5H32v1zM16.5 25H15v-1h1.5c.275 0 .5.225.5.5s-.225.5-.5.5zm4 0h-2c-.275 0-.5-.225-.5-.5s.225-.5.5-.5h2c.275 0 .5.225.5.5s-.225.5-.5.5zm4 0h-2c-.275 0-.5-.225-.5-.5s.225-.5.5-.5h2c.275 0 .5.225.5.5s-.225.5-.5.5zm4 0h-2c-.275 0-.5-.225-.5-.5s.225-.5.5-.5h2c.275 0 .5.225.5.5s-.225.5-.5.5zm3.5 0h-1.5c-.275 0-.5-.225-.5-.5s.225-.5.5-.5H32v1z"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 120" width="100%" height="100%">
+    <ellipse cx="70" cy="112" rx="54" ry="6" fill="rgba(0,0,0,0.12)" />
+    <!-- Folded Fabric Dinner Napkin (Standing Fan / Triangle Fold) -->
+    <g transform="translate(30, 16)">
+      <!-- Base napkin fold -->
+      <polygon points="40,6 76,64 4,64" fill="#EF4444" stroke="#B91C1C" stroke-width="3" />
+      <!-- Red and White Gingham / Vichy pattern lines on napkin -->
+      <path d="M 22 36 L 58 36 M 14 48 L 66 48 M 6 60 L 74 60" stroke="#FFFFFF" stroke-width="2.5" />
+      <path d="M 30 18 L 12 56 M 40 10 L 30 64 M 50 18 L 48 64 M 60 30 L 66 56" stroke="#FFFFFF" stroke-width="2.5" />
+      <!-- Front folded flap -->
+      <polygon points="40,10 68,64 24,64" fill="#F87171" stroke="#B91C1C" stroke-width="2" />
+      <polygon points="40,14 56,64 32,64" fill="#FCA5A5" />
+      <!-- Golden Napkin Ring / Holder around the base -->
+      <ellipse cx="40" cy="64" rx="24" ry="8" fill="#F59E0B" stroke="#B45309" stroke-width="2" />
+      <ellipse cx="40" cy="64" rx="18" ry="5" fill="#FDE047" />
+      <!-- Napkin skirt spilling out below ring -->
+      <path d="M 20 66 Q 16 88 28 88 Q 40 88 40 68 Q 40 88 52 88 Q 64 88 60 66 Z" fill="#EF4444" stroke="#B91C1C" stroke-width="2" />
+    </g>
+    <!-- Little silver butter knife beside napkin -->
+    <g transform="translate(18, 48) rotate(-22)">
+      <rect x="0" y="0" width="5" height="48" rx="2.5" fill="#E2E8F0" stroke="#94A3B8" stroke-width="1.5" />
+    </g>
+    <!-- Little fork beside napkin -->
+    <g transform="translate(116, 48) rotate(22)">
+      <rect x="0" y="0" width="5" height="48" rx="2.5" fill="#E2E8F0" stroke="#94A3B8" stroke-width="1.5" />
+    </g>
+  </svg>

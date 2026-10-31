@@ -159,7 +159,7 @@ export const GrammarInspector: React.FC<GrammarInspectorProps> = ({ progress }) 
                   </div>
                   <div className="flex items-center gap-1.5">
                     <button
-                      onClick={() => speechManager.speak(pair.level1)}
+                      onClick={() => speechManager.speak(pair.level1, `pair_${pair.id}_l1`)}
                       className="p-1 rounded-full hover:bg-amber-200 text-amber-700"
                       title="Écouter Niveau 1"
                     >
@@ -186,7 +186,7 @@ export const GrammarInspector: React.FC<GrammarInspectorProps> = ({ progress }) 
                   </div>
                   <div className="flex items-center gap-1.5">
                     <button
-                      onClick={() => speechManager.speak(pair.level2)}
+                      onClick={() => speechManager.speak(pair.level2, `pair_${pair.id}_l2`)}
                       className="p-1 rounded-full hover:bg-emerald-200 text-emerald-700"
                       title="Écouter Niveau 2"
                     >

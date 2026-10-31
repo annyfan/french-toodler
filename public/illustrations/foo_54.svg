@@ -1,1 +1,35 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 36 36"><path fill="#99AAB5" d="M30 32.5c0 1.933-5.373 3.5-12 3.5S6 34.433 6 32.5c0-1.932 5.372-3.5 12-3.5 6.627 0 12 1.567 12 3.5z"/><path fill="#99AAB5" d="M6 31.5h24v1H6z"/><path fill="#E6E7E8" d="M30 31.5c0 1.933-5.373 3.5-12 3.5S6 33.433 6 31.5 11.372 28 18 28c6.627 0 12 1.567 12 3.5z"/><path fill="#5C913B" d="M29 31c0 1.656-4.926 3-11 3-6.075 0-11-1.343-11-3s4.924-3 11-3c6.075 0 11 1.343 11 3z"/><path fill="#5C913B" d="M7 8h22v23H7z"/><path fill="#A6D388" d="M29 23c0 1.932-4.926 3.5-11 3.5-6.075 0-11-1.567-11-3.5s4.924-3.5 11-3.5c6.074 0 11 1.567 11 3.5z"/><path fill="#A6D388" d="M7 10h22v13H7z"/><path fill="#5C913B" d="M29 14c0 1.932-4.926 3.5-11 3.5-6.075 0-10.999-1.567-10.999-3.5S11.925 10.5 18 10.5c6.074 0 11 1.567 11 3.5z"/><path fill="#5C913B" d="M7 4h22v10H7z"/><path fill="#99AAB5" d="M30 4.5C30 6.433 24.627 8 18 8S6 6.433 6 4.5 11.373 1 18 1s12 1.567 12 3.5z"/><path fill="#99AAB5" d="M6 3.5h24v1H6z"/><path fill="#E6E7E8" d="M30 3.5C30 5.433 24.627 7 18 7S6 5.433 6 3.5 11.373 0 18 0s12 1.567 12 3.5z"/><path fill="#CCD6DD" d="M28.25 3.5C28.25 4.881 23.662 6 18 6S7.75 4.881 7.75 3.5 12.338 1 18 1s10.25 1.119 10.25 2.5z"/><path fill="#E6E7E8" d="M27.25 3.5c0 1.105-4.14 2-9.25 2s-9.25-.895-9.25-2 4.141-2 9.25-2c5.11 0 9.25.895 9.25 2z"/><path fill="#CCD6DD" d="M24 3.5c0 .69-2.686 1.25-6 1.25s-6-.56-6-1.25 2.686-1.25 6-1.25 6 .56 6 1.25z"/><ellipse fill="#E6E7E8" cx="18" cy="3.5" rx="4.75" ry=".75"/><path fill="#FFCC4D" d="M25 21c0 4.142-3.134 7.5-7 7.5s-7-3.358-7-7.5 3.134-7.5 7-7.5 7 3.358 7 7.5z"/><path fill="#FFAC33" d="M23 21c0 3.156-2.239 5.715-5 5.715s-5-2.56-5-5.715 2.238-5.714 5-5.714 5 2.558 5 5.714z"/></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 140 120" width="100%" height="100%">
+    <ellipse cx="70" cy="112" rx="54" ry="6" fill="rgba(0,0,0,0.12)" />
+    <!-- White Sauce Boat / Gravy Boat tipped at an angle pouring -->
+    <g transform="translate(64, 46) rotate(-22)">
+      <!-- Sauce Boat Foot -->
+      <ellipse cx="0" cy="30" rx="18" ry="5" fill="#E2E8F0" stroke="#94A3B8" stroke-width="2" />
+      <!-- Handle on right -->
+      <path d="M 28 4 C 44 4 44 24 24 24" stroke="#E2E8F0" stroke-width="5" fill="none" stroke-linecap="round" />
+      <path d="M 28 4 C 44 4 44 24 24 24" stroke="#94A3B8" stroke-width="2" fill="none" stroke-linecap="round" />
+      <!-- Boat Bowl Body -->
+      <path d="M -38 -2 C -40 24 24 30 32 4 C 20 8 -24 6 -38 -2 Z" fill="#FFFFFF" stroke="#94A3B8" stroke-width="2.5" />
+      <!-- Warm Savory Sauce inside boat -->
+      <ellipse cx="-4" cy="6" rx="26" ry="8" fill="#B45309" />
+      <ellipse cx="-4" cy="5" rx="22" ry="6" fill="#D97706" />
+      <!-- Boat Pouring Lip / Spout -->
+      <path d="M -38 -2 C -48 -6 -54 2 -46 8 L -36 12 Z" fill="#F8FAFC" stroke="#94A3B8" stroke-width="2" />
+    </g>
+    <!-- Liquid stream of rich glossy sauce pouring down -->
+    <g transform="translate(18, 38)">
+      <!-- Pouring Ribbon -->
+      <path d="M 32 10 Q 24 30 26 58 Q 24 64 20 68" stroke="#B45309" stroke-width="5" fill="none" stroke-linecap="round" />
+      <path d="M 32 10 Q 24 30 26 58 Q 24 64 20 68" stroke="#D97706" stroke-width="2.5" fill="none" stroke-linecap="round" />
+      <!-- Splash droplets -->
+      <circle cx="20" cy="74" r="2.5" fill="#D97706" />
+      <circle cx="28" cy="66" r="1.5" fill="#B45309" />
+      <circle cx="14" cy="62" r="1.5" fill="#D97706" />
+      <!-- Puddle of delicious sauce on plate below -->
+      <ellipse cx="28" cy="72" rx="18" ry="6" fill="#B45309" />
+      <ellipse cx="28" cy="71" rx="14" ry="4" fill="#D97706" />
+      <ellipse cx="26" cy="70" rx="6" ry="2" fill="#F59E0B" />
+    </g>
+    <!-- Delicious steam aroma swirls -->
+    <path d="M 72 26 Q 76 18 72 10" stroke="rgba(217,119,6,0.6)" stroke-width="2" fill="none" stroke-linecap="round" />
+    <path d="M 86 32 Q 90 22 86 14" stroke="rgba(217,119,6,0.6)" stroke-width="2" fill="none" stroke-linecap="round" />
+  </svg>
