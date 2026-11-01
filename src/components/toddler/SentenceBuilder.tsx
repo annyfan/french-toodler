@@ -41,6 +41,95 @@ const PLURAL_PRONOUNS: PronounDef[] = [
 
 const ALL_PRONOUNS: PronounDef[] = [...SINGULAR_PRONOUNS, ...PLURAL_PRONOUNS];
 
+interface HeroSentenceImageProps {
+  exercise: SentenceExercise;
+  activeExample: 'A' | 'B';
+  sentenceText: string;
+  isPlaying: boolean;
+}
+
+const HeroSentenceImage: React.FC<HeroSentenceImageProps> = ({
+  exercise,
+  activeExample,
+  sentenceText,
+  isPlaying,
+}) => {
+  const [imageError, setImageError] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  // Reset image states when exercise or active example changes
+  useEffect(() => {
+    setImageError(false);
+    setImageLoaded(false);
+  }, [exercise.id, activeExample]);
+
+  const imageUrl = `./illustrations/sentences/${exercise.id}_${activeExample}.jpg`;
+
+  if (!imageError) {
+    return (
+      <div className="relative w-full h-[240px] sm:h-[300px] md:h-[340px] flex items-center justify-center bg-slate-50 overflow-hidden">
+        <img
+          key={`${exercise.id}_${activeExample}`}
+          src={imageUrl}
+          alt={sentenceText}
+          onLoad={() => setImageLoaded(true)}
+          onError={() => setImageError(true)}
+          className={`w-full h-full object-cover sm:object-contain transition-all duration-300 ${
+            imageLoaded ? 'opacity-100 scale-100' : 'opacity-0 scale-95'
+          } ${isPlaying ? 'scale-[1.02]' : ''}`}
+        />
+        {!imageLoaded && (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="w-10 h-10 border-4 border-teal-200 border-t-teal-600 rounded-full animate-spin" />
+          </div>
+        )}
+      </div>
+    );
+  }
+
+  // Graceful Single-Image Story Fallback featuring Yannick as Hero
+  // (Cohesive story vignette: Yannick performing the action, never split dual cards or arrows)
+  return (
+    <div className="w-full h-[240px] sm:h-[300px] md:h-[340px] flex items-center justify-center bg-gradient-to-b from-sky-100 via-teal-50 to-amber-50 p-4 relative overflow-hidden">
+      {/* Background soft storybook elements */}
+      <div className="absolute top-3 left-4 text-3xl opacity-40 select-none">☁️</div>
+      <div className="absolute top-4 right-8 text-3xl opacity-40 select-none">☀️</div>
+      <div className="absolute bottom-2 left-6 text-2xl opacity-30 select-none">🌸</div>
+      <div className="absolute bottom-2 right-6 text-2xl opacity-30 select-none">🌿</div>
+
+      {/* Hero Vignette: Yannick + Core Concept */}
+      <div className="flex items-center justify-center gap-4 sm:gap-8 z-10">
+        {/* Yannick character */}
+        <div className="w-32 h-44 sm:w-44 sm:h-56 relative shrink-0 flex items-center justify-center drop-shadow-md">
+          <img
+            src="./illustrations/yannick.png"
+            alt="Yannick"
+            className="w-full h-full object-contain pointer-events-none"
+          />
+        </div>
+
+        {/* Action / Context Badge */}
+        <div className="flex flex-col items-center bg-white/95 backdrop-blur-sm rounded-3xl p-3 sm:p-4 shadow-lg border-2 border-teal-200 max-w-[200px] text-center">
+          <div className="w-16 h-16 sm:w-20 sm:h-20 flex items-center justify-center mb-1">
+            <ToddlerGraphic
+              id={exercise.id}
+              word={exercise.word}
+              category={exercise.categoryId}
+              size={72}
+            />
+          </div>
+          <span className="text-base sm:text-lg font-black text-slate-800 capitalize leading-tight">
+            {exercise.word}
+          </span>
+          <span className="text-[11px] font-bold text-teal-600 mt-0.5">
+            {exercise.type === 'verb' ? 'Action de Yannick' : 'Description'}
+          </span>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 export const SentenceBuilder: React.FC<SentenceBuilderProps> = ({
   showLabels = true,
   initialWordId = null,
@@ -462,7 +551,7 @@ export const SentenceBuilder: React.FC<SentenceBuilderProps> = ({
         </div>
 
         {/* B. Example Toggle (Modèle A vs Modèle B) */}
-        <div className="flex items-center justify-center gap-2 mt-1">
+        <div className="flex items-center justify-center gap-2 mt-0.5">
           <span className="text-xs font-black text-slate-500 uppercase tracking-wider mr-1">
             Modèle de phrase :
           </span>
@@ -490,7 +579,79 @@ export const SentenceBuilder: React.FC<SentenceBuilderProps> = ({
           </motion.button>
         </div>
 
-        {/* C. ALL 8 Subject Pronoun Selectors (Je, Tu, Il, Elle, Nous, Vous, Ils, Elles) */}
+        {/* C. Meaningful Scene Illustration featuring Yannick & Active Sentence Banner */}
+        <div className="w-full max-w-2xl bg-white/95 rounded-3xl shadow-lg border-2 border-teal-200 overflow-hidden flex flex-col">
+          {/* Single Unified Scene Illustration featuring Yannick */}
+          <div className="relative w-full bg-gradient-to-b from-sky-50/50 to-teal-50/30 flex items-center justify-center p-2 sm:p-3 overflow-hidden">
+            <motion.div
+              whileTap={{ scale: 0.98 }}
+              onClick={() => {
+                audioManager.playPop(520);
+                playSentence();
+              }}
+              className="relative w-full rounded-2xl overflow-hidden cursor-pointer group flex items-center justify-center bg-white shadow-sm border border-slate-100"
+              title="Touche l'illustration pour écouter Yannick !"
+            >
+              <HeroSentenceImage
+                exercise={currentExercise}
+                activeExample={activeExample}
+                sentenceText={sentenceText}
+                isPlaying={isPlaying}
+              />
+
+              {/* Floating Audio Play Indicator Badge */}
+              <div className="absolute bottom-2.5 right-2.5 flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/90 backdrop-blur-md shadow-md border border-teal-200 text-xs font-black text-teal-800 pointer-events-none group-hover:scale-105 transition-transform">
+                <span className={`text-sm ${isPlaying ? 'animate-bounce' : ''}`}>{isPlaying ? '🗣️' : '🔊'}</span>
+                <span>{isPlaying ? 'Sylvie parle...' : 'Touche pour écouter !'}</span>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Interactive French Sentence Banner */}
+          <motion.button
+            type="button"
+            whileTap={{ scale: 0.99 }}
+            onClick={() => {
+              audioManager.playPop(520);
+              playSentence();
+            }}
+            className={`w-full p-4 sm:p-5 text-center transition-all flex flex-col items-center justify-center gap-1.5 border-t-2 ${
+              isPlaying
+                ? 'bg-emerald-500 text-white border-emerald-400'
+                : 'bg-white hover:bg-emerald-50/40 text-slate-800 border-teal-100'
+            }`}
+          >
+            {/* Play Badge */}
+            <div className="flex items-center gap-2 mb-0.5">
+              <span className={`text-base ${isPlaying ? 'animate-bounce' : ''}`}>
+                {isPlaying ? '🗣️' : '🔊'}
+              </span>
+              <span className={`text-xs font-black uppercase tracking-wider ${isPlaying ? 'text-emerald-100' : 'text-emerald-700'}`}>
+                {isPlaying ? 'Lecture en cours (Voix studio Sylvie)...' : 'Touche pour réécouter la phrase'}
+              </span>
+            </div>
+
+            {/* Large Clear Natural French Sentence */}
+            <p className={`text-2xl sm:text-3xl md:text-4xl font-black leading-tight tracking-tight ${
+              isPlaying ? 'text-white' : 'text-slate-900'
+            }`}>
+              {sentenceText}
+            </p>
+
+            {/* Bilingual English & Chinese Translations in Grey (Controlled by 🏷️ Mots) */}
+            {showLabels && (currentEnSentence || currentZhSentence) && (
+              <div className={`flex flex-wrap items-center justify-center gap-x-2 gap-y-0.5 text-sm sm:text-base font-bold transition-colors ${
+                isPlaying ? 'text-emerald-100' : 'text-slate-400'
+              }`}>
+                {currentEnSentence && <span>{currentEnSentence}</span>}
+                {currentEnSentence && currentZhSentence && <span>•</span>}
+                {currentZhSentence && <span>{currentZhSentence}</span>}
+              </div>
+            )}
+          </motion.button>
+        </div>
+
+        {/* B. ALL 8 Subject Pronoun Selectors (Je, Tu, Il, Elle, Nous, Vous, Ils, Elles) */}
         <div className="w-full max-w-2xl bg-white/95 backdrop-blur-md rounded-2xl p-3 sm:p-4 shadow-md border-2 border-slate-200 space-y-2.5">
           <div className="flex items-center justify-between px-1">
             <span className="text-xs font-black text-slate-600 uppercase tracking-wider">
@@ -572,100 +733,6 @@ export const SentenceBuilder: React.FC<SentenceBuilderProps> = ({
               })}
             </div>
           </div>
-        </div>
-
-        {/* D. Hero Active Sentence Banner (Interactive Full-Speech Bar) */}
-        <div className="w-full max-w-2xl">
-          <motion.button
-            type="button"
-            whileTap={{ scale: 0.98 }}
-            onClick={() => {
-              audioManager.playPop(520);
-              playSentence();
-            }}
-            className={`w-full relative rounded-3xl p-4 sm:p-5 text-center shadow-lg border-4 transition-all flex flex-col items-center justify-center gap-2.5 ${
-              isPlaying
-                ? 'bg-emerald-500 text-white border-emerald-300 ring-4 ring-emerald-200 shadow-emerald-200'
-                : 'bg-white hover:bg-emerald-50/50 text-slate-800 border-emerald-400 hover:border-emerald-500'
-            }`}
-          >
-            {/* Play Badge */}
-            <div className="flex items-center gap-2">
-              <span className={`text-xl ${isPlaying ? 'animate-bounce' : ''}`}>
-                {isPlaying ? '🗣️' : '🔊'}
-              </span>
-              <span className={`text-xs font-black uppercase tracking-wider ${isPlaying ? 'text-emerald-100' : 'text-emerald-700'}`}>
-                {isPlaying ? 'Lecture en cours (Voix studio Sylvie)...' : 'Touche pour réécouter la phrase'}
-              </span>
-            </div>
-
-            {/* Visual Sentence Comic Strip for Pre-readers (Direct Toddler Comprehension) */}
-            <div className="flex items-center justify-center gap-2 sm:gap-3 py-1 flex-wrap">
-              {/* 1. Subject Pronoun Avatar */}
-              <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-2xl bg-white/95 border-2 border-emerald-200 shadow-sm">
-                <span className="text-2xl sm:text-3xl leading-none">{currentPronounDef?.icon || '👤'}</span>
-                <span className="text-xs sm:text-sm font-black text-slate-800">
-                  {currentPronounDef?.label.split('/')[0].trim()}
-                </span>
-              </div>
-
-              {/* Connector Arrow */}
-              <span className={`text-base sm:text-xl font-black ${isPlaying ? 'text-emerald-100' : 'text-emerald-400'}`}>➔</span>
-
-              {/* 2. Core Action / Descriptor Graphic */}
-              <div className="flex items-center gap-2 px-3 py-1.5 rounded-2xl bg-white/95 border-2 border-teal-200 shadow-sm">
-                <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center">
-                  <ToddlerGraphic
-                    id={currentExercise.id}
-                    word={currentExercise.word}
-                    category={currentExercise.categoryId}
-                    size={46}
-                  />
-                </div>
-                <span className="text-xs sm:text-sm font-black text-slate-800 capitalize">
-                  {currentExercise.word}
-                </span>
-              </div>
-
-              {/* 3. Object / Companion Graphic (if present) */}
-              {objectWord && (
-                <>
-                  <span className={`text-base sm:text-xl font-black ${isPlaying ? 'text-emerald-100' : 'text-emerald-400'}`}>➔</span>
-                  <div className="flex items-center gap-2 px-3 py-1.5 rounded-2xl bg-white/95 border-2 border-sky-200 shadow-sm">
-                    <div className="w-10 h-10 sm:w-12 sm:h-12 flex items-center justify-center">
-                      <ToddlerGraphic
-                        id={objectWord.id}
-                        word={objectWord.fr}
-                        category={objectWord.categoryId}
-                        size={46}
-                      />
-                    </div>
-                    <span className="text-xs sm:text-sm font-black text-slate-800 capitalize">
-                      {objectWord.fr}
-                    </span>
-                  </div>
-                </>
-              )}
-            </div>
-
-            {/* Large Clear Natural French Sentence */}
-            <p className={`text-2xl sm:text-3xl md:text-4xl font-black leading-tight tracking-tight ${
-              isPlaying ? 'text-white' : 'text-slate-900'
-            }`}>
-              {sentenceText}
-            </p>
-
-            {/* Bilingual English & Chinese Translations in Grey (Controlled by 🏷️ Mots) */}
-            {showLabels && (currentEnSentence || currentZhSentence) && (
-              <div className={`flex flex-wrap items-center justify-center gap-x-2 gap-y-0.5 text-sm sm:text-base font-bold mt-1 transition-colors ${
-                isPlaying ? 'text-emerald-100' : 'text-slate-400'
-              }`}>
-                {currentEnSentence && <span>{currentEnSentence}</span>}
-                {currentEnSentence && currentZhSentence && <span>•</span>}
-                {currentZhSentence && <span>{currentZhSentence}</span>}
-              </div>
-            )}
-          </motion.button>
         </div>
 
         {/* E. Complete 8-Sentence Conjugation View (Tous les pronoms visibles en un coup d'œil) */}
