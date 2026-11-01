@@ -6,7 +6,7 @@ import { audioManager } from '../../engine/AudioContextManager';
 import { speechManager } from '../../engine/SpeechManager';
 import { ToddlerGraphic } from '../common/ToddlerGraphic';
 
-type SentenceLevel = 1 | 2 | 3;
+type SentenceLevel = 1 | 3;
 
 interface SentenceExample {
   subject: string;
@@ -123,6 +123,48 @@ const verbComplements: Record<string, [string, string]> = {
 
 const getBaseWord = (word: WordItem): string =>
   word.fr.split('/')[0].trim().toLocaleLowerCase('fr-CA');
+
+const normalizeFrenchText = (value: string): string => value
+  .toLocaleLowerCase('fr-CA')
+  .normalize('NFKD')
+  .replace(/[\u0300-\u036f]/g, '')
+  .replace(/['’]/g, ' ')
+  .replace(/[^a-z0-9\s]/g, ' ')
+  .replace(/\s+/g, ' ')
+  .trim();
+
+const getWordVariants = (word: WordItem): string[] =>
+  word.fr
+    .split('/')
+    .map(part => normalizeFrenchText(part))
+    .filter(Boolean);
+
+const findComplementWord = (
+  complement: string,
+  words: WordItem[],
+  currentWordId: string
+): WordItem | undefined => {
+  const normalizedComplement = normalizeFrenchText(complement);
+  if (!normalizedComplement) return undefined;
+
+  let bestMatch: { word: WordItem; score: number } | undefined;
+
+  words.forEach((word) => {
+    if (word.id === currentWordId) return;
+
+    getWordVariants(word).forEach((variant) => {
+      if (!variant || variant.length < 3) return;
+      if (!normalizedComplement.includes(variant)) return;
+
+      const score = variant.length;
+      if (!bestMatch || score > bestMatch.score) {
+        bestMatch = { word, score };
+      }
+    });
+  });
+
+  return bestMatch?.word;
+};
 
 const createExamples = (word: WordItem): [SentenceExample, SentenceExample] => {
   const baseWord = getBaseWord(word);
@@ -274,8 +316,7 @@ const getPlacePhrase = (words: WordItem[], exampleIndex: number): string => {
 };
 
 const levels: { id: SentenceLevel; label: string; detail: string }[] = [
-  { id: 1, label: 'Niveau 1', detail: 'Phrase complète' },
-  { id: 2, label: 'Niveau 2', detail: 'Personne + verbe + objet' },
+  { id: 1, label: 'Niveau 1-2', detail: 'Phrase + personne + verbe + objet' },
   { id: 3, label: 'Niveau 3', detail: 'Quand + où' },
 ];
 
@@ -283,7 +324,7 @@ export const SentenceBuilder: React.FC = () => {
   const [words, setWords] = useState<WordItem[]>(contentManager.getWords());
   const [wordIndex, setWordIndex] = useState(0);
   const [exampleIndex, setExampleIndex] = useState(0);
-  const [level, setLevel] = useState<SentenceLevel>(2);
+  const [level, setLevel] = useState<SentenceLevel>(1);
 
   useEffect(() => contentManager.subscribe(() => setWords(contentManager.getWords())), []);
 
@@ -296,6 +337,9 @@ export const SentenceBuilder: React.FC = () => {
       ? `${currentExample.sentence.replace(/[.!?]$/, '')} ${getTimePhrase(words, exampleIndex)} ${getPlacePhrase(words, exampleIndex)}.`
       : currentExample.sentence
     : '';
+  const complementWord = currentExample
+    ? findComplementWord(currentExample.complement, words, currentWord?.id || '')
+    : undefined;
 
   const handleNext = () => {
     audioManager.playPop(500);
@@ -313,7 +357,7 @@ export const SentenceBuilder: React.FC = () => {
   };
 
   const speakSentence = () => {
-    if (sentence) speechManager.speak(sentence);
+    if (sentence) speechManager.speakWithVoice(sentence);
   };
 
   return (
@@ -343,43 +387,83 @@ export const SentenceBuilder: React.FC = () => {
       <div className="relative flex-1 w-full max-w-3xl flex flex-col items-center justify-center gap-4">
         {currentWord && currentExample ? (
           <>
-            <div className="flex flex-col items-center gap-2">
+            <div className="w-full max-w-3xl grid grid-cols-1 sm:grid-cols-2 gap-3">
               <button
                 type="button"
                 onClick={() => speechManager.speak(currentWord.fr, currentWord.id)}
-                className="flex flex-col items-center gap-2 rounded-2xl focus-visible:outline focus-visible:outline-4 focus-visible:outline-indigo-400"
+                className="flex items-center gap-3 rounded-2xl bg-white/90 border-2 border-slate-200 p-3 shadow-md text-left focus-visible:outline focus-visible:outline-4 focus-visible:outline-indigo-400"
                 aria-label={`Écouter le mot ${currentWord.fr}`}
               >
                 <ToddlerGraphic
                   id={currentWord.id}
                   word={currentWord.fr}
                   category={currentWord.categoryId}
-                  size={96}
+                  size={86}
                 />
-                <span className="text-sm font-extrabold text-slate-600">
-                  {currentWord.categoryId === 14 ? '⚡ Verbe' : '✨ Mot descriptif'} · {exampleIndex + 1}/2
-                </span>
+                <div className="min-w-0">
+                  <span className="block text-xs font-extrabold text-slate-500 uppercase">
+                    {currentWord.categoryId === 14 ? 'Verbe' : 'Mot descriptif'}
+                  </span>
+                  <span className="block text-lg font-black text-slate-800 leading-tight capitalize">
+                    {currentWord.fr}
+                  </span>
+                  <span className="block text-xs font-bold text-slate-500 truncate">
+                    {currentWord.zh} • {currentWord.en}
+                  </span>
+                </div>
               </button>
+
+              {complementWord ? (
+                <button
+                  type="button"
+                  onClick={() => speechManager.speak(complementWord.fr, complementWord.id)}
+                  className="flex items-center gap-3 rounded-2xl bg-white/90 border-2 border-slate-200 p-3 shadow-md text-left focus-visible:outline focus-visible:outline-4 focus-visible:outline-indigo-400"
+                  aria-label={`Écouter le complément ${complementWord.fr}`}
+                >
+                  <ToddlerGraphic
+                    id={complementWord.id}
+                    word={complementWord.fr}
+                    category={complementWord.categoryId}
+                    size={86}
+                  />
+                  <div className="min-w-0">
+                    <span className="block text-xs font-extrabold text-slate-500 uppercase">Objet / idée</span>
+                    <span className="block text-lg font-black text-slate-800 leading-tight capitalize">
+                      {complementWord.fr}
+                    </span>
+                    <span className="block text-xs font-bold text-slate-500 truncate">
+                      {complementWord.zh} • {complementWord.en}
+                    </span>
+                  </div>
+                </button>
+              ) : (
+                <div className="flex items-center rounded-2xl bg-white/70 border-2 border-dashed border-slate-300 p-3">
+                  <div>
+                    <span className="block text-xs font-extrabold text-slate-500 uppercase">Objet / idée</span>
+                    <span className="block text-lg font-black text-slate-800 leading-tight">
+                      {currentExample.complement}
+                    </span>
+                  </div>
+                </div>
+              )}
             </div>
 
             <div className="w-full rounded-3xl bg-white/80 border-4 border-dashed border-teal-300 shadow-xl p-4 md:p-6">
-              {level >= 2 && (
-                <div className="flex flex-wrap items-center justify-center gap-2 mb-4">
-                  {[
-                    { label: 'Personne', value: currentExample.subject },
-                    { label: 'Verbe', value: currentExample.verb },
-                    { label: 'Objet / description', value: currentExample.complement },
-                  ].map((part, index) => (
-                    <React.Fragment key={part.label}>
-                      {index > 0 && <span className="text-2xl font-black text-teal-500">+</span>}
-                      <div className="min-w-24 rounded-2xl bg-white border-2 border-teal-200 px-3 py-2 text-center shadow-sm">
-                        <span className="block text-[10px] font-bold uppercase text-slate-500">{part.label}</span>
-                        <span className="font-extrabold text-slate-800">{part.value}</span>
-                      </div>
-                    </React.Fragment>
-                  ))}
-                </div>
-              )}
+              <div className="flex flex-wrap items-center justify-center gap-2 mb-4">
+                {[
+                  { label: 'Personne', value: currentExample.subject },
+                  { label: 'Verbe', value: currentExample.verb },
+                  { label: 'Objet / description', value: currentExample.complement },
+                ].map((part, index) => (
+                  <React.Fragment key={part.label}>
+                    {index > 0 && <span className="text-2xl font-black text-teal-500">+</span>}
+                    <div className="min-w-24 rounded-2xl bg-white border-2 border-teal-200 px-3 py-2 text-center shadow-sm">
+                      <span className="block text-[10px] font-bold uppercase text-slate-500">{part.label}</span>
+                      <span className="font-extrabold text-slate-800">{part.value}</span>
+                    </div>
+                  </React.Fragment>
+                ))}
+              </div>
 
               {level === 3 && (
                 <div className="flex flex-wrap items-center justify-center gap-2 mb-4 text-sm font-bold text-indigo-700">
