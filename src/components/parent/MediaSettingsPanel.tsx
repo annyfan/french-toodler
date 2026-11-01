@@ -100,8 +100,8 @@ export const MediaSettingsPanel: React.FC = () => {
   };
 
   // Group and sort voices (French voices first!)
-  const frenchVoices = availableVoices.filter(v => v.lang.toLowerCase().startsWith('fr'));
-  const otherVoices = availableVoices.filter(v => !v.lang.toLowerCase().startsWith('fr'));
+  const frenchVoices = availableVoices.filter(v => speechManager.isFrenchVoice(v));
+  const otherVoices = availableVoices.filter(v => !speechManager.isFrenchVoice(v));
 
   // Custom items list
   const customizedWordIds = Array.from(

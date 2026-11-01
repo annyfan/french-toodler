@@ -1,7 +1,8 @@
+import baseSentences from '../data/sentences.json';
 import baseCategories from '../data/categories.json';
 import baseVocabulary from '../data/vocabulary.json';
 import baseGrammarPairs from '../data/grammarPairs.json';
-import { CategoryInfo, WordItem, GrammarPair } from '../types';
+import { CategoryInfo, WordItem, GrammarPair, SentenceExercise } from '../types';
 import { mediaCustomizationManager } from './MediaCustomizationManager';
 
 const STORAGE_KEY = 'baobao_custom_content_v1';
@@ -325,6 +326,20 @@ export class ContentManager {
       delete this.grammarPairOverrides[id];
     }
     this.persist();
+  }
+
+  // --- Sentence Exercises (from sentences.json) ---
+  public getSentences(): SentenceExercise[] {
+    return baseSentences as unknown as SentenceExercise[];
+  }
+
+  public getSentence(id: string): SentenceExercise | undefined {
+    return this.getSentences().find(s => s.id.toLowerCase() === id.toLowerCase());
+  }
+
+  public hasSentence(id: string): boolean {
+    if (!id) return false;
+    return this.getSentence(id) !== undefined;
   }
 }
 

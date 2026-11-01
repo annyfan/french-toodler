@@ -8,53 +8,53 @@
     "floorColor": "#D4A373",
     "items": [
       {
-        "wordId": "fur_09",
-        "x": 48,
-        "y": 62,
-        "size": 155,
-        "label": "divan/sofa"
-      },
-      {
-        "wordId": "ani_08",
-        "x": 52,
-        "y": 62,
-        "size": 75,
-        "label": "chat"
-      },
-      {
-        "wordId": "fur_33",
-        "x": 82,
-        "y": 56,
-        "size": 110,
-        "label": "télévision"
-      },
-      {
         "wordId": "hou_20",
-        "x": 16,
-        "y": 52,
-        "size": 90,
+        "x": 12,
+        "y": 56,
+        "size": 85,
         "label": "lampe"
       },
       {
         "wordId": "toy_16",
-        "x": 26,
-        "y": 72,
+        "x": 22,
+        "y": 76,
         "size": 65,
         "label": "livre"
       },
       {
+        "wordId": "toy_20",
+        "x": 34,
+        "y": 68,
+        "size": 70,
+        "label": "toutou"
+      },
+      {
+        "wordId": "fur_09",
+        "x": 52,
+        "y": 62,
+        "size": 135,
+        "label": "divan/sofa"
+      },
+      {
+        "wordId": "ani_08",
+        "x": 72,
+        "y": 68,
+        "size": 75,
+        "label": "chat"
+      },
+      {
         "wordId": "toy_02",
-        "x": 74,
-        "y": 76,
+        "x": 82,
+        "y": 80,
         "size": 65,
         "label": "ballon"
       },
       {
-        "wordId": "toy_20",
-        "x": 36,
-        "y": 60,
-        "size": 68,
-        "label": "toutou"
+        "wordId": "fur_33",
+        "x": 88,
+        "y": 56,
+        "size": 105,
+        "label": "télévision"
       }
     ]
   },
@@ -68,59 +68,59 @@
     "items": [
       {
         "wordId": "fur_17",
-        "x": 18,
-        "y": 52,
-        "size": 135,
+        "x": 14,
+        "y": 56,
+        "size": 120,
         "label": "frigidaire/frigo"
       },
       {
-        "wordId": "fur_32",
-        "x": 62,
-        "y": 66,
-        "size": 140,
-        "label": "table"
+        "wordId": "hou_44",
+        "x": 28,
+        "y": 72,
+        "size": 52,
+        "label": "tasse"
       },
       {
         "wordId": "fur_04",
-        "x": 40,
-        "y": 66,
+        "x": 38,
+        "y": 68,
         "size": 85,
         "label": "chaise"
       },
       {
         "wordId": "foo_46",
-        "x": 56,
-        "y": 55,
-        "size": 52,
+        "x": 54,
+        "y": 54,
+        "size": 54,
         "label": "pomme"
       },
       {
-        "wordId": "foo_01",
-        "x": 62,
-        "y": 55,
-        "size": 52,
-        "label": "banane"
-      },
-      {
         "wordId": "foo_32",
-        "x": 68,
+        "x": 66,
         "y": 52,
-        "size": 52,
+        "size": 54,
         "label": "lait"
       },
       {
-        "wordId": "foo_05",
-        "x": 74,
-        "y": 58,
-        "size": 48,
-        "label": "biscuit"
+        "wordId": "foo_01",
+        "x": 78,
+        "y": 54,
+        "size": 54,
+        "label": "banane"
       },
       {
-        "wordId": "hou_44",
-        "x": 50,
-        "y": 58,
-        "size": 48,
-        "label": "tasse"
+        "wordId": "fur_32",
+        "x": 66,
+        "y": 70,
+        "size": 130,
+        "label": "table"
+      },
+      {
+        "wordId": "foo_05",
+        "x": 88,
+        "y": 74,
+        "size": 52,
+        "label": "biscuit"
       }
     ]
   },
@@ -134,58 +134,58 @@
     "items": [
       {
         "wordId": "out_01",
-        "x": 16,
-        "y": 50,
-        "size": 150,
+        "x": 14,
+        "y": 56,
+        "size": 125,
         "label": "arbre"
+      },
+      {
+        "wordId": "ani_15",
+        "x": 10,
+        "y": 78,
+        "size": 56,
+        "label": "écureuil"
+      },
+      {
+        "wordId": "ani_26",
+        "x": 26,
+        "y": 46,
+        "size": 56,
+        "label": "oiseau"
+      },
+      {
+        "wordId": "out_18",
+        "x": 34,
+        "y": 22,
+        "size": 75,
+        "label": "nuage"
       },
       {
         "wordId": "out_27",
         "x": 50,
         "y": 22,
-        "size": 85,
+        "size": 75,
         "label": "soleil"
       },
       {
-        "wordId": "out_18",
-        "x": 28,
-        "y": 24,
-        "size": 80,
-        "label": "nuage"
-      },
-      {
         "wordId": "ani_11",
-        "x": 34,
-        "y": 74,
-        "size": 90,
+        "x": 38,
+        "y": 72,
+        "size": 85,
         "label": "chien"
       },
       {
-        "wordId": "ani_26",
-        "x": 20,
-        "y": 40,
-        "size": 55,
-        "label": "oiseau"
-      },
-      {
-        "wordId": "ani_15",
-        "x": 12,
-        "y": 66,
-        "size": 55,
-        "label": "écureuil"
-      },
-      {
         "wordId": "out_03",
-        "x": 64,
-        "y": 56,
-        "size": 120,
+        "x": 62,
+        "y": 60,
+        "size": 110,
         "label": "balançoire"
       },
       {
         "wordId": "veh_05",
-        "x": 84,
+        "x": 86,
         "y": 72,
-        "size": 95,
+        "size": 90,
         "label": "bicyclette"
       }
     ]
@@ -199,46 +199,46 @@
     "floorColor": "#E2CFEA",
     "items": [
       {
-        "wordId": "fur_21",
-        "x": 45,
-        "y": 62,
-        "size": 150,
-        "label": "lit"
-      },
-      {
-        "wordId": "toy_20",
-        "x": 36,
-        "y": 55,
-        "size": 68,
-        "label": "toutou"
-      },
-      {
-        "wordId": "fur_19",
-        "x": 84,
-        "y": 56,
-        "size": 120,
-        "label": "garde-robe"
-      },
-      {
         "wordId": "toy_04",
-        "x": 20,
+        "x": 16,
         "y": 76,
         "size": 70,
         "label": "bloc"
       },
       {
+        "wordId": "clo_23",
+        "x": 28,
+        "y": 60,
+        "size": 65,
+        "label": "pyjama"
+      },
+      {
+        "wordId": "fur_21",
+        "x": 50,
+        "y": 64,
+        "size": 135,
+        "label": "lit"
+      },
+      {
         "wordId": "toy_18",
-        "x": 62,
-        "y": 74,
+        "x": 48,
+        "y": 82,
         "size": 68,
         "label": "poupée"
       },
       {
-        "wordId": "clo_23",
-        "x": 54,
-        "y": 55,
-        "size": 58,
-        "label": "pyjama"
+        "wordId": "toy_20",
+        "x": 68,
+        "y": 66,
+        "size": 70,
+        "label": "toutou"
+      },
+      {
+        "wordId": "fur_19",
+        "x": 86,
+        "y": 58,
+        "size": 115,
+        "label": "garde-robe"
       }
     ]
   }

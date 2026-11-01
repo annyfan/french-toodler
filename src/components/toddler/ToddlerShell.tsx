@@ -17,6 +17,25 @@ export const ToddlerShell: React.FC<ToddlerShellProps> = ({ onOpenParentPortal }
   const [isMuted, setIsMuted] = useState(false);
   const [showLabels, setShowLabels] = useState(true);
   const [shuffleTrigger, setShuffleTrigger] = useState(0);
+  const [sentenceInitialWordId, setSentenceInitialWordId] = useState<string | null>(null);
+  const [imagierInitialCategoryId, setImagierInitialCategoryId] = useState<number | null>(null);
+  const [imagierHighlightWordId, setImagierHighlightWordId] = useState<string | null>(null);
+
+  const handleNavigateToSentences = (wordId: string) => {
+    setSentenceInitialWordId(wordId);
+    setActiveModule('sentences');
+  };
+
+  const handleBackToImagier = (categoryId?: number, wordId?: string) => {
+    audioManager.playPop(480);
+    if (categoryId) {
+      setImagierInitialCategoryId(categoryId);
+    }
+    if (wordId) {
+      setImagierHighlightWordId(wordId);
+    }
+    setActiveModule('imagier');
+  };
 
   const toggleMute = () => {
     const nextMuted = !isMuted;
@@ -37,6 +56,13 @@ export const ToddlerShell: React.FC<ToddlerShellProps> = ({ onOpenParentPortal }
 
   const handleNavClick = (moduleId: ToddlerModule) => {
     audioManager.playPop(520);
+    if (moduleId === 'sentences') {
+      setSentenceInitialWordId(null);
+    }
+    if (moduleId === 'imagier') {
+      setImagierInitialCategoryId(null);
+      setImagierHighlightWordId(null);
+    }
     setActiveModule(moduleId);
   };
 
@@ -124,7 +150,16 @@ export const ToddlerShell: React.FC<ToddlerShellProps> = ({ onOpenParentPortal }
               transition={{ duration: 0.2 }}
               className="w-full h-full"
             >
-              <PictureDictionary />
+              <PictureDictionary
+                showLabels={showLabels}
+                initialCategoryId={imagierInitialCategoryId}
+                highlightWordId={imagierHighlightWordId}
+                onCategoryConsumed={() => {
+                  setImagierInitialCategoryId(null);
+                  setImagierHighlightWordId(null);
+                }}
+                onNavigateToSentences={handleNavigateToSentences}
+              />
             </motion.div>
           )}
 
@@ -137,7 +172,12 @@ export const ToddlerShell: React.FC<ToddlerShellProps> = ({ onOpenParentPortal }
               transition={{ duration: 0.2 }}
               className="w-full h-full"
             >
-              <SentenceBuilder />
+              <SentenceBuilder
+                showLabels={showLabels}
+                initialWordId={sentenceInitialWordId}
+                onWordIdConsumed={() => setSentenceInitialWordId(null)}
+                onBackToImagier={handleBackToImagier}
+              />
             </motion.div>
           )}
 
@@ -150,7 +190,7 @@ export const ToddlerShell: React.FC<ToddlerShellProps> = ({ onOpenParentPortal }
               transition={{ duration: 0.2 }}
               className="w-full h-full"
             >
-              <SimonSays />
+              <SimonSays showLabels={showLabels} />
             </motion.div>
           )}
         </AnimatePresence>

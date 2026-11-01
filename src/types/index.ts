@@ -79,3 +79,29 @@ export interface CustomMediaRecord {
   customAudios: Record<string, string>;
   voiceSettings: VoiceSettings;
 }
+
+export type SubjectPronoun = 'je' | 'tu' | 'il' | 'elle' | 'nous' | 'vous' | 'ils' | 'elles';
+
+export interface SentenceExampleSet {
+  sentences: Record<SubjectPronoun, string>;
+  translations?: {
+    en: Record<SubjectPronoun, string>;
+    zh: Record<SubjectPronoun, string>;
+  };
+  objectWordId?: string | null;
+}
+
+export interface SentenceExercise {
+  id: string;
+  index: number;
+  word: string;
+  type: 'verb' | 'descriptor';
+  categoryId: number;
+  en: string;
+  zh: string;
+  illustrationAsset: string;
+  examples: {
+    A: SentenceExampleSet;
+    B: SentenceExampleSet;
+  };
+}

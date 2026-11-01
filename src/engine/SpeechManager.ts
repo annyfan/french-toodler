@@ -158,73 +158,127 @@ export class SpeechManager {
 
   public isFrenchVoice(v: SpeechSynthesisVoice | null): boolean {
     if (!v) return false;
-    const lang = (v.lang || '').toLowerCase();
+    const lang = (v.lang || '').replace('_', '-').toLowerCase();
     const name = (v.name || '').toLowerCase();
+
+    // Strictly reject non-French languages even if locale string includes 'ca' (e.g. 'en-CA', 'es-US')
+    if (
+      lang.startsWith('en') ||
+      lang.startsWith('es') ||
+      lang.startsWith('de') ||
+      lang.startsWith('it') ||
+      lang.startsWith('pt') ||
+      lang.startsWith('zh') ||
+      lang.startsWith('ja') ||
+      lang.startsWith('ko') ||
+      lang.startsWith('ru') ||
+      lang.startsWith('ar') ||
+      name.includes('english') ||
+      name.includes('spanish')
+    ) {
+      return false;
+    }
+
     return (
       lang.startsWith('fr') ||
-      lang.includes('fr-') ||
-      lang.includes('fr_') ||
       name.includes('french') ||
       name.includes('français') ||
       name.includes('francais')
     );
   }
 
-  private initVoices(): void {
-    if (!this.synth) return;
+  public getBestFrenchVoice(): SpeechSynthesisVoice | null {
+    if (!this.synth) return null;
     const voices = this.synth.getVoices();
-    if (!voices || voices.length === 0) return;
+    if (!voices || voices.length === 0) return null;
 
+    // 1. If parent explicitly selected a voice by voiceURI, use that if it is French
     const settings = mediaCustomizationManager.getVoiceSettings();
-
-    // 1. If parent explicitly selected a voice by voiceURI, use that first
     if (settings.voiceURI) {
       const selected = voices.find(v => v.voiceURI === settings.voiceURI);
       if (selected && this.isFrenchVoice(selected)) {
-        this.voice = selected;
-        this.isReady = true;
-        return;
+        return selected;
       }
     }
 
-    // 2. Default search preference order (strictly prioritize Quebec / Canadian French):
-    // Tier A: Canadian French exact match (fr-CA)
-    const exactCa = voices.find(v => {
+    // STRICT FILTER: Only consider genuine French voices!
+    const frenchVoices = voices.filter(v => this.isFrenchVoice(v));
+    if (frenchVoices.length === 0) {
+      return null;
+    }
+
+    // Tier 1: Canadian French Natural/Neural online voice (Edge / Windows: Sylvie, Antoine, Jean, etc.)
+    const caNatural = frenchVoices.find(v => {
+      const lang = v.lang.replace('_', '-').toLowerCase();
+      const name = v.name.toLowerCase();
+      return (
+        lang === 'fr-ca' &&
+        (name.includes('natural') ||
+          name.includes('online') ||
+          name.includes('sylvie') ||
+          name.includes('antoine') ||
+          name.includes('jean'))
+      );
+    });
+    if (caNatural) return caNatural;
+
+    // Tier 2: Any exact fr-CA voice (Amélie, Chantal, Nicolas, Caroline, Claude, Harmonie...)
+    const exactCa = frenchVoices.find(v => {
       const lang = v.lang.replace('_', '-').toLowerCase();
       return lang === 'fr-ca';
     });
+    if (exactCa) return exactCa;
 
-    // Tier B: Online natural / Neural Canadian French voices (Edge & Windows)
-    const naturalCa = voices.find(v => {
-      const name = v.name.toLowerCase();
-      const lang = v.lang.toLowerCase();
-      return lang.includes('ca') && (name.includes('natural') || name.includes('online') || name.includes('sylvie') || name.includes('jean'));
-    });
-
-    // Tier C: Named Quebec / Canadian voices (Amélie, Nicolas, Chantal, Sylvie, Caroline, Claude)
-    const namedCa = voices.find(v => {
+    // Tier 3: French voice with Canadian/Quebec indicator in name
+    const namedCa = frenchVoices.find(v => {
       const name = v.name.toLowerCase();
       return (
         name.includes('canada') ||
         name.includes('canadian') ||
         name.includes('québec') ||
         name.includes('quebec') ||
+        name.includes('sylvie') ||
         name.includes('amelie') ||
         name.includes('chantal') ||
-        name.includes('sylvie') ||
+        name.includes('nicolas') ||
         name.includes('caroline') ||
         name.includes('claude')
       );
     });
+    if (namedCa) return namedCa;
 
-    // Tier D: Google français (High quality natural voice in Chrome)
-    const googleFr = voices.find(v => v.name.toLowerCase().includes('google') && v.lang.toLowerCase().startsWith('fr'));
+    // Tier 4: Google français (Chrome high quality)
+    const googleFr = frenchVoices.find(v => {
+      const name = v.name.toLowerCase();
+      return name.includes('google');
+    });
+    if (googleFr) return googleFr;
 
-    // Tier E: Any French voice
-    const anyFrenchVoice = voices.find(v => this.isFrenchVoice(v));
+    // Tier 5: France Natural / Online voices (Denise, Henri, Paul, Julie...)
+    const frNatural = frenchVoices.find(v => {
+      const name = v.name.toLowerCase();
+      return name.includes('natural') || name.includes('online');
+    });
+    if (frNatural) return frNatural;
 
-    this.voice = exactCa || naturalCa || namedCa || googleFr || anyFrenchVoice || null;
-    this.isReady = true;
+    // Tier 6: Any exact fr-FR voice (Hortense, Thomas, Aurélie...)
+    const exactFr = frenchVoices.find(v => {
+      const lang = v.lang.replace('_', '-').toLowerCase();
+      return lang === 'fr-fr';
+    });
+    if (exactFr) return exactFr;
+
+    // Tier 7: Any remaining French voice
+    return frenchVoices[0];
+  }
+
+  private initVoices(): void {
+    if (!this.synth) return;
+    const best = this.getBestFrenchVoice();
+    if (best) {
+      this.voice = best;
+      this.isReady = true;
+    }
   }
 
   public setRate(newRate: number) {
@@ -247,7 +301,10 @@ export class SpeechManager {
   }
 
   public getSelectedVoiceName(): string {
-    return this.voice ? `${this.voice.name} (${this.voice.lang})` : 'Voix studio québécoise (fr-CA)';
+    if (!this.voice || !this.isFrenchVoice(this.voice)) {
+      this.voice = this.getBestFrenchVoice();
+    }
+    return this.voice ? `${this.voice.name} (${this.voice.lang})` : 'Voix québécoise (fr-CA)';
   }
 
   public getSelectedVoice(): SpeechSynthesisVoice | null {
@@ -318,7 +375,32 @@ export class SpeechManager {
     }
   }
 
-  // Play studio-grade pre-rendered Canadian French category audio (fr-CA-SylvieNeural)
+  private handlePlayPromise(
+    audio: HTMLAudioElement,
+    playPromise: Promise<void> | undefined,
+    fallbackText?: string,
+    onEnd?: () => void
+  ): void {
+    if (playPromise !== undefined) {
+      playPromise.catch((err: unknown) => {
+        // If aborted or interrupted by new audio/pause, NEVER trigger fallback
+        if (err && typeof err === 'object' && 'name' in err && (err as { name: string }).name === 'AbortError') {
+          return;
+        }
+        if (this.currentAudio !== audio) {
+          return;
+        }
+        this.currentAudio = null;
+        if (fallbackText) {
+          this.speakWithSpeechSynthesis(fallbackText, onEnd);
+        } else if (onEnd) {
+          onEnd();
+        }
+      });
+    }
+  }
+
+    // Play studio-grade pre-rendered Canadian French category audio (fr-CA-SylvieNeural)
   public speakCategory(categoryId: number, fallbackText?: string, onEnd?: () => void): void {
     if (!this.isEnabled) {
       if (onEnd) onEnd();
@@ -358,16 +440,74 @@ export class SpeechManager {
     };
 
     const playPromise = audio.play();
-    if (playPromise !== undefined) {
-      playPromise.catch(() => {
-        this.currentAudio = null;
-        if (fallbackText) {
-          this.speakWithSpeechSynthesis(fallbackText, onEnd);
-        } else if (onEnd) {
-          onEnd();
-        }
-      });
+    this.handlePlayPromise(audio, playPromise, fallbackText, onEnd);
+  }
+
+  // Preload a studio MP3 for sentence into memory for instant tap response
+  public preloadSentenceAudio(wordId: string, example: 'A' | 'B', pronoun: string): void {
+    const audioKey = `sent_${wordId}_${example}_${pronoun}`;
+    if (this.audioCache.has(audioKey)) return;
+    try {
+      const baseUrl = import.meta.env.BASE_URL || './';
+      const cleanBase = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
+      const audioUrl = `${cleanBase}audio/sentences/${wordId}_${example}_${pronoun}.mp3`;
+      const audio = new Audio();
+      audio.preload = 'auto';
+      audio.src = audioUrl;
+      this.audioCache.set(audioKey, audio);
+    } catch {
+      // Ignore
     }
+  }
+
+  // Play studio-grade pre-rendered Canadian French sentence audio (fr-CA-SylvieNeural)
+  public playSentenceAudio(
+    wordId: string,
+    example: 'A' | 'B',
+    pronoun: string,
+    fallbackText?: string,
+    onEnd?: () => void
+  ): void {
+    if (!this.isEnabled) {
+      if (onEnd) onEnd();
+      return;
+    }
+
+    this.stopAll();
+
+    const baseUrl = import.meta.env.BASE_URL || './';
+    const cleanBase = baseUrl.endsWith('/') ? baseUrl : `${baseUrl}/`;
+    const audioKey = `sent_${wordId}_${example}_${pronoun}`;
+    const audioUrl = `${cleanBase}audio/sentences/${wordId}_${example}_${pronoun}.mp3`;
+
+    let audio = this.audioCache.get(audioKey);
+    if (!audio) {
+      audio = new Audio(audioUrl);
+      this.audioCache.set(audioKey, audio);
+    } else {
+      audio.currentTime = 0;
+    }
+
+    this.currentAudio = audio;
+    audio.volume = 1.0;
+
+    audio.onended = () => {
+      this.currentAudio = null;
+      if (onEnd) onEnd();
+    };
+
+    audio.onerror = () => {
+      this.currentAudio = null;
+      // Fallback only if MP3 not found
+      if (fallbackText) {
+        this.speakWithSpeechSynthesis(fallbackText, onEnd);
+      } else if (onEnd) {
+        onEnd();
+      }
+    };
+
+    const playPromise = audio.play();
+    this.handlePlayPromise(audio, playPromise, fallbackText, onEnd);
   }
 
   // Speak with automatic priority based on parent configuration:
@@ -408,10 +548,13 @@ export class SpeechManager {
       const key = cleanLookupKey(text);
       targetAudioId = this.textToAudioId.get(key);
       if (!targetAudioId) {
-        // Try slugifying the text as a block word
-        const slug = slugifyText(text);
-        if (slug) {
-          targetAudioId = `block_${slug}`;
+        // Only slugify short single words (<= 2 words), NEVER whole sentences!
+        const wordsCount = text.trim().split(/\s+/).length;
+        if (wordsCount <= 2) {
+          const slug = slugifyText(text);
+          if (slug) {
+            targetAudioId = `block_${slug}`;
+          }
         }
       }
     }
@@ -446,13 +589,7 @@ export class SpeechManager {
       };
 
       const playPromise = audio.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(() => {
-          // Fallback to speech synthesis if audio play fails (e.g. autoplay block)
-          this.currentAudio = null;
-          this.speakWithSpeechSynthesis(text, onEnd);
-        });
-      }
+      this.handlePlayPromise(audio, playPromise, text, onEnd);
       return;
     }
 
@@ -461,6 +598,10 @@ export class SpeechManager {
   }
 
   // Live test preview of any voice configuration
+  public speakSentence(text: string, onEnd?: () => void): void {
+    this.speakWithVoice(text, undefined, 0.92, 1.0, onEnd);
+  }
+
   public speakWithVoice(
     text: string,
     voiceURI?: string,
@@ -488,11 +629,22 @@ export class SpeechManager {
     utterance.lang = 'fr-CA';
 
     const voices = this.getAvailableVoices();
+    let voiceToUse: SpeechSynthesisVoice | null = null;
+
     if (voiceURI) {
       const v = voices.find(item => item.voiceURI === voiceURI);
-      if (v && this.isFrenchVoice(v)) utterance.voice = v;
-    } else if (this.voice) {
-      utterance.voice = this.voice;
+      if (v && this.isFrenchVoice(v)) {
+        voiceToUse = v;
+      }
+    }
+
+    if (!voiceToUse) {
+      voiceToUse = this.getBestFrenchVoice();
+    }
+
+    if (voiceToUse && this.isFrenchVoice(voiceToUse)) {
+      utterance.voice = voiceToUse;
+      this.voice = voiceToUse;
     }
 
     utterance.rate = rate !== undefined ? rate : this.rate;
@@ -519,55 +671,7 @@ export class SpeechManager {
   }
 
   private speakWithSpeechSynthesis(text: string, onEnd?: () => void): void {
-    if (!this.synth) {
-      if (onEnd) onEnd();
-      return;
-    }
-
-    const cleanText = cleanSpeechText(text);
-    if (!cleanText) {
-      if (onEnd) onEnd();
-      return;
-    }
-
-    if (this.synth.paused) {
-      this.synth.resume();
-    }
-
-    const utterance = new SpeechSynthesisUtterance(cleanText);
-    utterance.lang = 'fr-CA';
-
-    // Strictly ensure a French voice is attached if available
-    if (!this.voice || !this.isFrenchVoice(this.voice)) {
-      this.initVoices();
-    }
-
-    if (this.voice && this.isFrenchVoice(this.voice)) {
-      utterance.voice = this.voice;
-    }
-
-    utterance.rate = this.rate;
-    utterance.pitch = this.pitch;
-
-    // Retain reference to prevent Chrome garbage-collection speech cut-off
-    this.activeUtterance = utterance;
-
-    utterance.onend = () => {
-      this.activeUtterance = null;
-      if (onEnd) onEnd();
-    };
-
-    utterance.onerror = () => {
-      this.activeUtterance = null;
-      if (onEnd) onEnd();
-    };
-
-    try {
-      this.synth.speak(utterance);
-    } catch {
-      this.activeUtterance = null;
-      if (onEnd) onEnd();
-    }
+    this.speakWithVoice(text, undefined, this.rate, this.pitch, onEnd);
   }
 }
 
