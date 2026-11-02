@@ -427,6 +427,17 @@ export const SentenceBuilder: React.FC<SentenceBuilderProps> = ({
             </motion.button>
           )}
 
+          {/* Précédent */}
+          <motion.button
+            whileTap={{ scale: 0.92 }}
+            onClick={handlePrev}
+            className="flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 font-black text-xs sm:text-sm shadow-sm border border-slate-200 transition-all"
+            title="Mot précédent"
+          >
+            <span>⬅️</span>
+            <span className="hidden sm:inline">Précédent</span>
+          </motion.button>
+
           <motion.button
             whileTap={{ scale: 0.94 }}
             onClick={() => {
@@ -437,14 +448,24 @@ export const SentenceBuilder: React.FC<SentenceBuilderProps> = ({
             className="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white hover:bg-slate-50 text-slate-700 text-xs sm:text-sm font-bold shadow-sm border border-slate-200 transition-all"
             title="Choisir un mot dans la liste"
           >
-            <span>📖</span>
-            <span className="hidden sm:inline">Choisir :</span>
-            <span className="font-black text-teal-700 capitalize max-w-[120px] truncate">
+            <span className="hidden md:inline">Choisir :</span>
+            <span className="font-black text-teal-700 capitalize max-w-[110px] truncate">
               {currentExercise.word}
             </span>
             <span className="text-xs text-slate-400">
               ({currentIndex + 1}/{filteredExercises.length})
             </span>
+          </motion.button>
+
+          {/* Suivant */}
+          <motion.button
+            whileTap={{ scale: 0.92 }}
+            onClick={handleNext}
+            className="flex items-center gap-1 px-3 py-1.5 rounded-xl bg-emerald-500 hover:bg-emerald-600 text-white font-black text-xs sm:text-sm shadow-sm border border-emerald-400 transition-all"
+            title="Mot suivant"
+          >
+            <span className="hidden sm:inline">Suivant</span>
+            <span>➡️</span>
           </motion.button>
 
           <motion.button
@@ -811,44 +832,7 @@ export const SentenceBuilder: React.FC<SentenceBuilderProps> = ({
         </div>
       </div>
 
-      {/* 3. Navigation Footer Bar: Prev / Counter / Next */}
-      <div className="w-full max-w-2xl mx-auto flex items-center justify-between gap-3 pt-2 pb-1 z-20">
-        <motion.button
-          whileTap={{ scale: 0.92 }}
-          onClick={handlePrev}
-          className="flex items-center gap-1.5 px-4 py-2.5 rounded-2xl bg-white hover:bg-slate-50 text-slate-700 font-black text-sm shadow-md border-2 border-slate-200 transition-all"
-        >
-          <span>⬅️</span>
-          <span className="hidden sm:inline">Précédent</span>
-        </motion.button>
 
-        <div className="flex flex-col items-center">
-          <span className="text-xs font-black text-slate-600">
-            {currentIndex + 1} / {filteredExercises.length}
-          </span>
-          <div className="flex gap-1 mt-1">
-            {Array.from({ length: Math.min(8, filteredExercises.length) }).map((_, i) => (
-              <div
-                key={i}
-                className={`w-2 h-2 rounded-full transition-all ${
-                  i === currentIndex % Math.min(8, filteredExercises.length)
-                    ? 'bg-emerald-500 w-4'
-                    : 'bg-slate-300'
-                }`}
-              />
-            ))}
-          </div>
-        </div>
-
-        <motion.button
-          whileTap={{ scale: 0.92 }}
-          onClick={handleNext}
-          className="flex items-center gap-1.5 px-6 py-2.5 rounded-2xl bg-emerald-500 hover:bg-emerald-600 text-white font-black text-sm shadow-lg border-2 border-emerald-400 transition-all"
-        >
-          <span>Suivant</span>
-          <span>➡️</span>
-        </motion.button>
-      </div>
 
       {/* 4. Full Word Browser / Search Drawer Modal */}
       <AnimatePresence>
