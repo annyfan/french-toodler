@@ -362,6 +362,8 @@ export const PictureDictionary: React.FC<PictureDictionaryProps> = ({
                   }}
                   whileHover={{ scale: 1.02 }}
                   onClick={() => handleWordTap(word)}
+                  role="button"
+                  tabIndex={0}
                   className={`relative flex flex-col items-center justify-between p-3.5 rounded-3xl bg-white shadow-md border-3 transition-all cursor-pointer ${
                     isPlaying
                       ? 'border-amber-400 ring-4 ring-amber-200 shadow-xl bg-amber-50/60'
