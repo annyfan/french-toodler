@@ -79,6 +79,38 @@
   animation: fadeIn 0.2s ease-out forwards;
 }
 
+@media (min-width: 1600px) and (min-height: 900px) and (min-aspect-ratio: 16/10) {
+  .tv-layout-scale {
+    padding-inline: clamp(0.75rem, 1.4vw, 1.5rem);
+    padding-top: max(0.5rem, env(safe-area-inset-top));
+    padding-bottom: max(0.5rem, env(safe-area-inset-bottom));
+    box-sizing: border-box;
+  }
+
+  .tv-layout-scale header {
+    top: 0.75rem;
+    left: 0.75rem;
+    right: 0.75rem;
+    transform: scale(0.88);
+    transform-origin: top right;
+  }
+
+  .tv-layout-scale nav {
+    bottom: 0.75rem;
+    transform: translateX(-50%) scale(0.86);
+    transform-origin: bottom center;
+  }
+
+  .tv-layout-scale .tv-module-stage {
+    --tv-stage-scale: 0.86;
+    width: calc(100% / var(--tv-stage-scale));
+    height: calc(100% / var(--tv-stage-scale));
+    transform: scale(var(--tv-stage-scale));
+    transform-origin: top center;
+    margin-inline: auto;
+  }
+}
+
 /* Print Stylesheet for SLP / CPE printable reports */
 @media print {
   html, body, #root, .parent-portal-container, main {
