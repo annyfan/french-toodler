@@ -14,6 +14,7 @@ interface ToddlerShellProps {
 }
 
 export const ToddlerShell: React.FC<ToddlerShellProps> = ({ onOpenParentPortal }) => {
+  const [isTvViewport, setIsTvViewport] = useState(false);
   const [activeModule, setActiveModule] = useState<ToddlerModule>('exploratory');
   const [isMuted, setIsMuted] = useState(false);
   const [showLabels, setShowLabels] = useState(true);
@@ -61,6 +62,30 @@ export const ToddlerShell: React.FC<ToddlerShellProps> = ({ onOpenParentPortal }
     return () => window.removeEventListener(BACK_EVENT, goHome);
   }, []);
 
+  useEffect(() => {
+    const tvMediaQuery = window.matchMedia(
+      '(min-width: 1600px) and (min-height: 900px) and (min-aspect-ratio: 16/10)'
+    );
+    const syncTvViewport = () => setIsTvViewport(tvMediaQuery.matches);
+    syncTvViewport();
+
+    if (typeof tvMediaQuery.addEventListener === 'function') {
+      tvMediaQuery.addEventListener('change', syncTvViewport);
+    } else {
+      tvMediaQuery.addListener(syncTvViewport);
+    }
+    window.addEventListener('resize', syncTvViewport);
+
+    return () => {
+      if (typeof tvMediaQuery.removeEventListener === 'function') {
+        tvMediaQuery.removeEventListener('change', syncTvViewport);
+      } else {
+        tvMediaQuery.removeListener(syncTvViewport);
+      }
+      window.removeEventListener('resize', syncTvViewport);
+    };
+  }, []);
+
   const handleNavClick = (moduleId: ToddlerModule) => {
     audioManager.playPop(520);
     if (moduleId === 'sentences') {
@@ -75,10 +100,11 @@ export const ToddlerShell: React.FC<ToddlerShellProps> = ({ onOpenParentPortal }
 
   return (
     <div className="relative w-full h-screen min-h-screen flex flex-col bg-slate-900 select-none overflow-hidden">
-      {/* Top Header Controls (Zero obstruction across the canvas) */}
-      <header className="absolute top-3 left-3 right-3 z-30 flex items-center justify-between pointer-events-none">
-        {/* Left Side Placeholder (Room Switcher lives here inside ExploratoryScene) */}
-        <div className="pointer-events-auto" />
+      <div className={`w-full h-full ${isTvViewport ? 'tv-layout-scale' : ''}`}>
+        {/* Top Header Controls (Zero obstruction across the canvas) */}
+        <header className="absolute top-3 left-3 right-3 z-30 flex items-center justify-between pointer-events-none">
+          {/* Left Side Placeholder (Room Switcher lives here inside ExploratoryScene) */}
+          <div className="pointer-events-auto" />
 
         {/* Top Right Corner Dock: The 3 control buttons + Parent Gate Lock! */}
         <div className="pointer-events-auto flex items-center gap-1.5 md:gap-2 bg-white/95 backdrop-blur-md px-2.5 py-1.5 rounded-2xl shadow-xl border-2 border-slate-200">
@@ -127,11 +153,12 @@ export const ToddlerShell: React.FC<ToddlerShellProps> = ({ onOpenParentPortal }
           {/* Parent Gate Lock */}
           <ParentGate onSuccess={onOpenParentPortal} compact={true} />
         </div>
-      </header>
+        </header>
 
       {/* Main Toddler Content Area */}
-      <main className="relative flex-1 w-full h-full overflow-hidden pb-24 md:pb-28">
-        <AnimatePresence mode="wait">
+        <main className="relative flex-1 w-full h-full overflow-hidden pb-24 md:pb-28">
+          <div className={isTvViewport ? 'tv-module-stage' : 'w-full h-full'}>
+            <AnimatePresence mode="wait">
           {activeModule === 'exploratory' && (
             <motion.div
               key="exploratory"
@@ -200,34 +227,36 @@ export const ToddlerShell: React.FC<ToddlerShellProps> = ({ onOpenParentPortal }
               <SimonSays showLabels={showLabels} />
             </motion.div>
           )}
-        </AnimatePresence>
-      </main>
+            </AnimatePresence>
+          </div>
+        </main>
 
       {/* Bottom Navigation Bar */}
-      <nav className="absolute bottom-3 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2 md:gap-3 bg-white/95 backdrop-blur-xl px-3 py-2 rounded-3xl shadow-2xl border-2 border-slate-200">
-        {navItems.map((item) => {
-          const isActive = activeModule === item.id;
-          return (
-            <motion.button
-              key={item.id}
-              whileTap={{ scale: 0.9 }}
-              whileHover={{ scale: 1.05 }}
-              onClick={() => handleNavClick(item.id)}
-              className={`relative px-3 py-1.5 md:px-4 md:py-2.5 rounded-2xl flex flex-col items-center justify-center transition-all shadow-sm ${
-                isActive
-                  ? `bg-gradient-to-tr ${item.color} text-white ring-2 ring-amber-300 shadow-md scale-105 -translate-y-1`
-                  : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
-              }`}
-              aria-label={item.label}
-            >
-              <span className="text-2xl md:text-3xl leading-none">{item.icon}</span>
-              <span className={`text-[10px] md:text-xs font-extrabold tracking-tight mt-1 whitespace-nowrap ${isActive ? 'text-white' : 'text-slate-600'}`}>
-                {item.label}
-              </span>
-            </motion.button>
-          );
-        })}
-      </nav>
+        <nav className="absolute bottom-3 left-1/2 -translate-x-1/2 z-30 flex items-center gap-2 md:gap-3 bg-white/95 backdrop-blur-xl px-3 py-2 rounded-3xl shadow-2xl border-2 border-slate-200">
+          {navItems.map((item) => {
+            const isActive = activeModule === item.id;
+            return (
+              <motion.button
+                key={item.id}
+                whileTap={{ scale: 0.9 }}
+                whileHover={{ scale: 1.05 }}
+                onClick={() => handleNavClick(item.id)}
+                className={`relative px-3 py-1.5 md:px-4 md:py-2.5 rounded-2xl flex flex-col items-center justify-center transition-all shadow-sm ${
+                  isActive
+                    ? `bg-gradient-to-tr ${item.color} text-white ring-2 ring-amber-300 shadow-md scale-105 -translate-y-1`
+                    : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+                }`}
+                aria-label={item.label}
+              >
+                <span className="text-2xl md:text-3xl leading-none">{item.icon}</span>
+                <span className={`text-[10px] md:text-xs font-extrabold tracking-tight mt-1 whitespace-nowrap ${isActive ? 'text-white' : 'text-slate-600'}`}>
+                  {item.label}
+                </span>
+              </motion.button>
+            );
+          })}
+        </nav>
+      </div>
     </div>
   );
 };
