@@ -168,6 +168,7 @@ export const SimonSays: React.FC<SimonSaysProps> = ({ showLabels = true }) => {
               onClick={(e) => handleTargetTap('tete', e)}
               className="cursor-pointer group outline-none focus:outline-none select-none"
               role="button"
+              tabIndex={0}
               aria-label="Tête"
               style={{ outline: 'none' }}
             >
@@ -179,6 +180,7 @@ export const SimonSays: React.FC<SimonSaysProps> = ({ showLabels = true }) => {
               onClick={(e) => handleTargetTap('oreilles', e)}
               className="cursor-pointer group outline-none focus:outline-none select-none"
               role="button"
+              tabIndex={0}
               aria-label="Oreilles"
               style={{ outline: 'none' }}
             >
@@ -191,6 +193,7 @@ export const SimonSays: React.FC<SimonSaysProps> = ({ showLabels = true }) => {
               onClick={(e) => handleTargetTap('yeux', e)}
               className="cursor-pointer group outline-none focus:outline-none select-none"
               role="button"
+              tabIndex={0}
               aria-label="Yeux"
               style={{ outline: 'none' }}
             >
@@ -202,6 +205,7 @@ export const SimonSays: React.FC<SimonSaysProps> = ({ showLabels = true }) => {
               onClick={(e) => handleTargetTap('nez', e)}
               className="cursor-pointer group outline-none focus:outline-none select-none"
               role="button"
+              tabIndex={0}
               aria-label="Nez"
               style={{ outline: 'none' }}
             >
@@ -213,6 +217,7 @@ export const SimonSays: React.FC<SimonSaysProps> = ({ showLabels = true }) => {
               onClick={(e) => handleTargetTap('bouche', e)}
               className="cursor-pointer group outline-none focus:outline-none select-none"
               role="button"
+              tabIndex={0}
               aria-label="Bouche"
               style={{ outline: 'none' }}
             >
@@ -224,6 +229,7 @@ export const SimonSays: React.FC<SimonSaysProps> = ({ showLabels = true }) => {
               onClick={(e) => handleTargetTap('bras', e)}
               className="cursor-pointer group outline-none focus:outline-none select-none"
               role="button"
+              tabIndex={0}
               aria-label="Bras"
               style={{ outline: 'none' }}
             >
@@ -236,6 +242,7 @@ export const SimonSays: React.FC<SimonSaysProps> = ({ showLabels = true }) => {
               onClick={(e) => handleTargetTap('mains', e)}
               className="cursor-pointer group outline-none focus:outline-none select-none"
               role="button"
+              tabIndex={0}
               aria-label="Mains"
               style={{ outline: 'none' }}
             >
@@ -248,6 +255,7 @@ export const SimonSays: React.FC<SimonSaysProps> = ({ showLabels = true }) => {
               onClick={(e) => handleTargetTap('ventre', e)}
               className="cursor-pointer group outline-none focus:outline-none select-none"
               role="button"
+              tabIndex={0}
               aria-label="Ventre"
               style={{ outline: 'none' }}
             >
@@ -259,6 +267,7 @@ export const SimonSays: React.FC<SimonSaysProps> = ({ showLabels = true }) => {
               onClick={(e) => handleTargetTap('jambes', e)}
               className="cursor-pointer group outline-none focus:outline-none select-none"
               role="button"
+              tabIndex={0}
               aria-label="Jambes"
               style={{ outline: 'none' }}
             >
@@ -271,6 +280,7 @@ export const SimonSays: React.FC<SimonSaysProps> = ({ showLabels = true }) => {
               onClick={(e) => handleTargetTap('pieds', e)}
               className="cursor-pointer group outline-none focus:outline-none select-none"
               role="button"
+              tabIndex={0}
               aria-label="Pieds"
               style={{ outline: 'none' }}
             >

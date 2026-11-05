@@ -838,6 +838,8 @@ export const SentenceBuilder: React.FC<SentenceBuilderProps> = ({
       <AnimatePresence>
         {isWordPickerOpen && (
           <div
+            role="dialog"
+            aria-modal="true"
             onClick={() => setIsWordPickerOpen(false)}
             className="fixed inset-0 z-50 flex items-center justify-center p-3 sm:p-6 bg-slate-900/60 backdrop-blur-sm cursor-pointer"
           >
@@ -859,6 +861,7 @@ export const SentenceBuilder: React.FC<SentenceBuilderProps> = ({
                   </p>
                 </div>
                 <button
+                  data-remote-back
                   onClick={() => setIsWordPickerOpen(false)}
                   className="w-9 h-9 rounded-full bg-white hover:bg-slate-100 border border-slate-200 flex items-center justify-center text-slate-500 font-bold text-lg"
                 >

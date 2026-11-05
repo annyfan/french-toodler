@@ -1,7 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ToddlerModule } from '../../types';
 import { audioManager } from '../../engine/AudioContextManager';
+import { BACK_EVENT } from '../../engine/remoteNavigation';
 import { ExploratoryScene } from './ExploratoryScene';
 import { PictureDictionary } from './PictureDictionary';
 import { SentenceBuilder } from './SentenceBuilder';
@@ -53,6 +54,12 @@ export const ToddlerShell: React.FC<ToddlerShellProps> = ({ onOpenParentPortal }
     { id: 'sentences', icon: '🧩', color: 'from-teal-400 to-emerald-500', label: 'Phrases' },
     { id: 'simon', icon: '🤸', color: 'from-sky-400 to-indigo-500', label: 'Yannick a dit' },
   ];
+
+  useEffect(() => {
+    const goHome = () => setActiveModule('exploratory');
+    window.addEventListener(BACK_EVENT, goHome);
+    return () => window.removeEventListener(BACK_EVENT, goHome);
+  }, []);
 
   const handleNavClick = (moduleId: ToddlerModule) => {
     audioManager.playPop(520);
